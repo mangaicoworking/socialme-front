@@ -1,0 +1,27 @@
+/* NAVBAR */
+.navbar{
+    background-color: var(--white);
+    box-shadow: 7px 1px 5px -3px var(--dark);
+}
+.navbar a{
+    color: var(--primary);
+}
+.navbar a:hover{
+    color: var(--redDark);
+}
+.navbar ul{
+    display: inline-flex;
+}
+.navbar li{
+    margin: 0px 15px;
+}
+.navbar img{
+    width: auto;
+    height: 35px;
+}
+/* NAVBAR UNAUTHENTICATED */
+
+/* NAVBAR SIMPLE */
+.navbarSimple .navbar-brand{
+    margin: 0px auto;
+}
