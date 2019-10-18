@@ -1,0 +1,31 @@
+.dashboardBeneficiaryMeuCadastro .beneficiaryMeuCadastroTabs {
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.dashboardBeneficiaryMeuCadastro .beneficiaryMeuCadastroTabs .beneficiaryMeuCadastroTabs-ul{
+  list-style: none;
+  display: inline-flex;
+  margin: 0px;
+}
+.dashboardBeneficiaryMeuCadastro .beneficiaryMeuCadastroTabs .beneficiaryMeuCadastroTabs-li{
+  margin: 0px 5px;
+  background: var(--white);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  width: 100px;
+  border-right: 1px solid rgba(0,0,0,0.12);
+  border-top: 1px solid rgba(0,0,0,0.12);
+  border-left: 1px solid rgba(0,0,0,0.12);
+}
+.dashboardBeneficiaryMeuCadastro .beneficiaryMeuCadastroTabs .beneficiaryMeuCadastroTabs-li label {
+  cursor: pointer;
+  margin: 0px auto;
+}
+.dashboardBeneficiaryMeuCadastro .beneficiaryMeuCadastroTabs .beneficiaryMeuCadastroTabs-li i{
+  margin: 0px 5px 0px 0px;
+}
+.dashboardBeneficiaryMeuCadastro .beneficiaryMeuCadastroTabs .beneficiaryMeuCadastroTabs-li .active{
+  border-bottom: 1px solid var(--primary);
+  color: var(--textDark);
+}

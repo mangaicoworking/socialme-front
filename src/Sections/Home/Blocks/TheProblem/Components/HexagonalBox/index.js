@@ -1,0 +1,1 @@
+export { default as HexagonalBox } from './HexagonalBox';

@@ -1,0 +1,62 @@
+.painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs {
+  
+}
+.painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs .gestoraGestorDeBeneficiosTabs-ul{
+  list-style: none;
+  display: inline-flex;
+  margin: 0px;
+}
+.painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs .gestoraGestorDeBeneficiosTabs-li{
+  margin: 0px 5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  width: auto;
+  padding: 5px;
+  border: 1px solid var(--borderColor);
+  background-color: var(--white);
+}
+.painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs .gestoraGestorDeBeneficiosTabs-li label {
+  cursor: pointer;
+  margin: 0px auto;
+}
+.painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs .gestoraGestorDeBeneficiosTabs-li i{
+  margin: 0px 5px 0px 0px;
+}
+.painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs .gestoraGestorDeBeneficiosTabs-li .active{
+  border-bottom: 1px solid var(--primary);
+  color: var(--black);
+}
+/* */
+.painelGestoraGestorDeBeneficios-RowFiltros{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  background-color: var(--white);
+}
+.painelGestoraGestorDeBeneficios-RowFiltros button{
+  margin: 0px 5px;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros button:first-child{
+  margin: 0px 5px 0px 0px;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensLeft{
+  width: 30%;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensRight{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 70%;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensRight input{
+  width: 150px;
+  height: 30px;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensRight select{
+  width: 150px;
+  height: 30px;
+  margin-right: 10px;
+}

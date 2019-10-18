@@ -1,0 +1,37 @@
+.beneficiaryDashboardMyAccount-tabsContainer {
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.beneficiaryDashboardMyAccount-generalContainer a{
+  text-transform: none;
+  text-decoration: none;
+  color: var(--textGray);
+}
+.beneficiaryDashboardMyAccount-tabsContainer-ul{
+  list-style: none;
+  display: inline-flex;
+  margin: 0px;
+}
+.beneficiaryDashboardMyAccount-tabsContainer-li{
+  margin: 0px 5px;
+  background: var(--white);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  width: fit-content;;
+  border-right: 1px solid rgba(0,0,0,0.12);
+  border-top: 1px solid rgba(0,0,0,0.12);
+  border-left: 1px solid rgba(0,0,0,0.12);
+  padding: 0px 10px;
+}
+.beneficiaryDashboardMyAccount-tabsContainer-li label {
+  cursor: pointer;
+  margin: 0px auto;
+}
+.beneficiaryDashboardMyAccount-tabsContainer-li i{
+  margin: 0px 5px 0px 0px;
+}
+.beneficiaryDashboardMyAccount-tabsContainer-li .active{
+  border-bottom: 1px solid var(--primary);
+  color: var(--textDark);
+}

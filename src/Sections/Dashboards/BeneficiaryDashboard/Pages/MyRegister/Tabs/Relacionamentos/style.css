@@ -1,0 +1,160 @@
+.dashboardBeneficiaryMeuCadastroRelacionamento{
+    width: 100%;
+    background-color: var(--white);
+    border-right: 1px solid var(--borderColor);
+    border-left: 1px solid var(--borderColor);
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-ul{
+    list-style: none;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li{
+    display: flex;
+    padding: 10px 10px 0px 0px;
+    border-bottom: 1px solid var(--borderColor);
+    align-items: center;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li:nth-child(1){
+    cursor: pointer;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li:nth-child(1) p{
+    opacity: 0.8;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li:nth-child(1):hover p{
+    opacity: 1;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-imgContainer{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-imgContainer img{
+    width: 40px;
+    margin: 0px auto;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-addText{
+    display: flex;
+    align-items: center;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo p{
+    font-size: 14pt;
+    color: var(--primary);
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo p span{
+  font-size: 10pt;
+  color: var(--textGray);
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo span{
+    font-size: 10pt;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-buttonsActions{
+    margin-left: auto;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-buttonsActions button:nth-child(1){
+    margin-right: 15px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-buttonsActions i:nth-child(1){
+    margin-right: 5px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-buttonsActions button,
+.dashboardBeneficiaryMeuCadastroRelacionamento-buttonsActions i{
+    opacity: 0;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li:hover button{
+    opacity: 1;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li:hover i{
+    opacity: 1;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento{
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--borderColor);
+    border-right: 1px solid var(--borderColor);
+    border-left: 1px solid var(--borderColor);
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento .btn-AddRelacionamento{
+  margin-right: 10px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento .form-group{
+    margin: 0px 10px 0px 0px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-edicao{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-edicao .form-group{
+  margin: 0px 5px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-edicao button{
+  margin: 0px 5px;
+}
+
+
+
+.drawer-out {
+    float: left;
+    height: 0px;
+    width: 100%;
+    background: var(--backgroundColor);
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .drawer-out .drawer {
+    float: left;
+    width: 100%;
+    height: 300px;
+    background: #fff;
+    opacity: 0;
+    -webkit-transform: perspective(250px) rotateX(90deg);
+    transform: perspective(250px) rotateX(90deg);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .drawer-out.opencan {
+    height: 70px;
+  }
+  .drawer-out.opencan .drawer {
+    opacity: 1;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: scale(1) perspective(1000px) rotateX(0deg);
+    -webkit-animation: out 0.75s ease forwards;
+    -moz-animation: out 0.75s ease forwards;
+    animation: out 0.75s ease forwards;
+  }
+  
+  @-webkit-keyframes out {
+    0% {
+      -webkit-transform: scale(0.8) perspective(1000px) rotateX(90deg);
+      transform: scale(0.8) perspective(1000px) rotateX(90deg);
+    }
+    100% {
+      -webkit-transform: scale(1) perspective(1000px) rotateX(0deg);
+      transform: scale(1) perspective(1000px) rotateX(0deg);
+    }
+  }
+  @-moz-keyframes out {
+    0% {
+      -moz-transform: scale(0.8) perspective(1000px) rotateX(90deg);
+    }
+    100% {
+      -moz-transform: scale(1) perspective(1000px) rotateX(0deg);
+    }
+  }
+  @keyframes out {
+    0% {
+      -webkit-transform: scale(0.8) perspective(1000px) rotateX(90deg);
+      transform: scale(0.8) perspective(1000px) rotateX(90deg);
+    }
+    100% {
+      -webkit-transform: scale(1) perspective(1000px) rotateX(0deg);
+      transform: scale(1) perspective(1000px) rotateX(0deg);
+    }
+  }

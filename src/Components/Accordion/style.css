@@ -1,0 +1,66 @@
+.accordionTabs {
+  overflow: hidden;
+}
+.accordionTabs input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.accordionTab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+.accordionTab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--primary);
+  opacity: 0.8;
+  /* Icon */
+}
+.accordionTab-label:hover {
+  color: var(--primary);
+  opacity: 1;
+}
+.accordionTab-label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all .35s;
+}
+.accordionTab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: var(--darkText);
+  background: white;
+  transition: all .35s;
+  text-align: justify;
+}
+.accordionTab-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: var(--primary);
+  cursor: pointer;
+}
+.accordionTab-close:hover {
+  background: #1a252f;
+}
+
+input:checked + .accordionTab-label {
+  background: var(--backgroundColor);
+  opacity: 1;
+}
+input:checked + .accordionTab-label::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+input:checked ~ .accordionTab-content {
+  max-height: 100vh;
+  padding: 1em;
+}

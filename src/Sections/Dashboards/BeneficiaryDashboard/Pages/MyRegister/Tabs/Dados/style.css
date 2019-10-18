@@ -1,0 +1,29 @@
+.dashboardBeneficiaryMeuCadastroo{
+    background-color: white;
+    padding: 10px;
+}
+.beneficiaryMeuCadastroDadosTabs{
+
+}
+.beneficiaryMeuCadastroDadosTabs-ul{
+    list-style: none;
+    display: inline-flex;
+    margin: 10px 0px;
+}
+.beneficiaryMeuCadastroDadosTabs-li{
+    margin: 0px 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    width: 100px;
+}
+.beneficiaryMeuCadastroDadosTabs-li label{
+    cursor: pointer;
+}
+.beneficiaryMeuCadastroDadosTabs-li i{
+    margin: 0px 5px 0px 0px;
+}
+.beneficiaryMeuCadastroDadosTabs-li .active{
+    border-bottom: 1px solid var(--primary);
+}

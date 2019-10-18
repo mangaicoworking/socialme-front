@@ -1,0 +1,12 @@
+.beneficiaryDashboardMyAccountMyPrograms-generalContainer{
+    background-color: var(--white);
+    padding: 20px;
+}
+.beneficiaryDashboardMyAccountMyPrograms-generalContainer h3{
+    text-align: center;
+}
+.beneficiaryDashboardMyAccountMyPrograms-ul{
+    width: 100%;
+    list-style: none;
+    margin: 10px 0px;
+}

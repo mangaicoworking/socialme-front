@@ -1,0 +1,76 @@
+.select{
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    width: 100px;
+    cursor: pointer;
+}
+.select img{
+    height: 15px;
+    width: auto;
+    margin: 0px 10px 0px 15px;
+}
+.select i{
+    margin: 0px 0px 0px 5px;
+    font-size: 8pt;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.select .box-select{
+    position: absolute;
+    top: 40px;
+    width: 100px;
+    height: auto;
+    background-color: var(--white);
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s; 
+}
+.select .box-select .box-select-ul{
+    list-style: none;
+    padding: 5px;
+}
+.select .box-select .box-select-li {
+    display: inline-block;
+    width: 90px;
+    margin: 0px;
+    text-align: justify;
+    color: var(--dark);
+    cursor: pointer;
+}
+.select .box-select .box-select-li:hover {
+    background-color: var(--backgroundColor)
+}
+.selectIconRotateUp{
+    transform: rotate(180deg);
+}
+.selectIconRotateDown{
+    transform: rotate(0deg);
+}
+.selectBoxOpen{
+    animation-name: fadeSelectBoxOpen;
+    animation-duration: 0.5s;
+}
+@keyframes fadeSelectBoxOpen {
+    from{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.selectBoxOpen .box-select-li{
+    animation-name: moveSelectBoxItensAnimate;
+    animation-duration: 0.5s;
+}
+@keyframes moveSelectBoxItensAnimate {
+    from{
+        opacity: 0;
+        transform: translateX(-35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}

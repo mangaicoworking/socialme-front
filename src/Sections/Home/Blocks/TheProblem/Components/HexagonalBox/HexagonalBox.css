@@ -1,0 +1,70 @@
+
+.HomeTheProblem-HexagonalContainer{
+    display: flex;
+    height: 100px;
+    width: max-content;
+    margin: 0px auto;
+}
+.HomeTheProblem-HexagonalImage{
+    display: flex;
+    align-items: center;
+}
+.HomeTheProblem-HexagonalText{
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    width: 300px;
+    color: var(--textDark);
+}
+  /* HEXAGONAL */
+  .HomeTheProblem-Hexagonal {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 59px;
+    height: 35px;
+    margin: 6px 1px;
+    border-radius: 9.5px;
+    border-left: 6px solid var(--primary);
+    border-right: 6px solid var(--primary);
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    background-color: var(--primary);
+  }
+  
+  .HomeTheProblem-Hexagonal:before,
+  .HomeTheProblem-Hexagonal:after {
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    content: '';
+    width: 35px;
+    height: 35px;
+    transform: rotate(45deg) skew(-13deg, -13deg);
+    border-radius: 9.5px;
+    transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    background-color: var(--primary);
+  }
+  .HomeTheProblem-Hexagonal:before {
+    top: -14px;
+    left: 6px;
+    border-top: 6px solid var(--primary);
+    border-left: 6px solid var(--primary);
+    box-shadow: -1px -1px 0 0 rgba(255, 255, 255, 0.03), inset 0 0 0 -4px rgba(0, 0, 0, 0.7);
+  }
+  .HomeTheProblem-Hexagonal:after {
+    bottom: -14px;
+    left: 6px;
+    border-bottom: 6px solid var(--primary);
+    border-right: 6px solid var(--primary);
+    box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 0.03), inset 0 0 0 -4px rgba(0, 0, 0, 0.7);
+  }
+  .HomeTheProblem-Hexagonal i{
+    color: var(--white);
+    position: absolute;
+    right: 7px;
+    font-size: 25pt;
+    z-index: 99;
+  }

@@ -1,0 +1,42 @@
+.beneficiaryDashboardMyAccountMyPrograms-li{
+    background-color: var(--white);
+    border: 1px solid var(--borderColor);
+    border-top: none;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0px;
+}
+.beneficiaryDashboardMyAccountMyPrograms-li:first-child{
+    border-top: 1px solid var(--borderColor);
+}
+.beneficiaryDashboardMyAccountMyPrograms-imageProgramContainer{
+    width: 100%;
+    height: 50px;
+}
+.beneficiaryDashboardMyAccountMyPrograms-imageProgram{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-position: center;
+    background-size: cover;
+}
+.beneficiaryDashboardMyAccountMyPrograms-nameProgram{
+    color: var(--primary);
+}
+.beneficiaryDashboardMyAccountMyPrograms-nameProgram span{
+    color: var(--textGray);
+    font-size: 10pt;
+}
+.beneficiaryDashboardMyAccountMyPrograms-actions{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.beneficiaryDashboardMyAccountMyPrograms-actions button{
+    padding: 5px;
+}
+.beneficiaryDashboardMyAccountMyPrograms-actions-pending button:first-child{
+    margin-right: 10px;
+}

@@ -1,0 +1,18 @@
+.HomeTheProblem{
+    width: 100%;
+    padding-top: 200px;
+}
+.HomeTheProblem-ImageContainer img{
+    width: auto;
+    height: 250px;
+}
+.HomeTheProblemRow{
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.HomeTheProblemRow h1{
+    font-size: 5vw;
+    margin-bottom: 20px;
+    text-align: center;
+}

@@ -1,0 +1,30 @@
+.painelGestoraGestorDeBeneficios-RowFiltros{
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros button{
+    margin: 0px 5px;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros button:first-child{
+    margin: 0px 5px 0px 0px;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensLeft{
+    width: 30%;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensRight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 70%;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensRight input{
+    width: 150px;
+    height: 30px;
+}
+.painelGestoraGestorDeBeneficios-RowFiltros .itensRight select{
+    width: 150px;
+    height: 30px;
+    margin-right: 10px;
+}

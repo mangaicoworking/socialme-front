@@ -1,0 +1,114 @@
+.pageLogin{
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--backgroundColor);
+}
+.pageLogin .card{
+    background-color: var(--white);
+    width: 40%;
+    min-width: 400px;
+    margin: 0px auto;
+    border: 1px solid var(--borderColor);
+    animation-name: pageLoginFadeCard;
+    animation-duration: 1s;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+@keyframes pageLoginFadeCard {
+    from{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.pageLogin .card .progressTopCard{
+    width: 100%;
+    background-color: var(--white);
+    height: 5px;
+}
+.pageLogin .card .progressTopCard .progress{
+    background-color: var(--primary);
+    height: 5px;
+    width: 0%;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s; 
+}
+.pageLogin .card .progressTopCard .progressMove{
+    animation-name: pageLoginMoveProgress;
+    animation-duration: 1s;
+}
+@keyframes pageLoginMoveProgress {
+    from{
+        opacity: 0;
+        width: 0%;
+    }
+    to{
+        opacity: 1;
+        width: 100%;
+    }
+}
+.pageLogin .cardBody .moveIn{
+    animation-name: LogiVerificationMoveIn;
+    animation-duration: 1s;
+}
+.pageLogin .cardBody .moveOut{
+    animation-name: LogiVerificationMoveOut;
+    animation-duration: 1s;
+}
+@keyframes LogiVerificationMoveIn {
+    from{
+        opacity: 0;
+        transform: translateX(35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes LogiVerificationMoveOut {
+    from{
+        opacity: 0;
+        transform: translateX(-35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+
+.icone-rodando{
+    -webkit-animation: pageLoginFeedbackRotate 2s infinite;
+    animation: pageLoginFeedbackRotate 2s infinite;
+}
+
+@-webkit-keyframes pageLoginFeedbackRotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+  
+@keyframes pageLoginFeedbackRotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}

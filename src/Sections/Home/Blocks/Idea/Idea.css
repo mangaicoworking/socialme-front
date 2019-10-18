@@ -1,0 +1,22 @@
+.HomeIdea{
+    width: 100%;
+    padding: 100px 0px;
+}
+.HomeIdea-ImageContainer img{
+    height: 250px;
+    display: block;
+    margin: 0px auto;
+}
+.HomeIdea-TextContainer{
+    width: 350px;
+}
+.HomeIdea-TextContainer h1{
+    font-size: 4vw;
+    line-height: 35pt;
+    margin-bottom: 10px;
+}
+.HomeIdeaRow{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}

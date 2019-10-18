@@ -1,0 +1,31 @@
+.Login-RegisterPerson-GeneralContainer{
+    display: block;
+    margin: 0px auto;
+}
+.Login-RegisterPerson-Title h1{
+    font-size: 1.7vw;
+    text-align: justify;
+    color: (--textGray);
+}
+.formGroupMainDocument{
+    width: 300px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+}
+.formGroupMainDocument label{
+    font-size: 1.8vw;
+    margin-right: 15px;
+}
+.formGroupMainDocument .form-control{
+    height: 50px;
+}
+.formGroupMainDocument i{
+    font-size: 12pt;
+    margin-left: 10px;
+    color: var(--primary);
+    cursor: pointer;
+}
+.Login-RegisterPerson-NotificationRow{
+    margin: 10px 0px 30px;
+}

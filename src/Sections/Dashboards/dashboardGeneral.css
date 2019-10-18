@@ -1,0 +1,93 @@
+.dashboardGeneral{
+    display: flex;
+}
+.dashboardGeneral .containerSidebar{
+    box-sizing: border-box;
+    height: 100vh;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+    position: relative;
+    z-index: 10;
+    box-shadow: 5px 0 5px 0px rgba(0,0,0,0.12);
+}
+.dashboardGeneral .containerSidebarOpen{
+    width: 300px;
+}
+.dashboardGeneral .containerSidebarClose{
+    width: 50px;
+}
+/* CONTENT */
+.dashboardGeneral .containerContent{
+    background-color: var(--backgroundColor);
+    width: 100%;
+    min-height: 100vh;
+}
+/* ONLY CONTENT */
+.dashboardGeneral .containerOnlyContent{
+    background-color: var(--backgroundColor);
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    padding: 15px;
+    height: calc(100vh - 50px);
+}
+/* ESPECIFICO */
+/* GERAL */
+.sidebarDashboard{
+    background-color: var(--primary);
+    width: 100%;
+    height: -webkit-fill-available;
+}
+/* CONTAINER LOGO */
+.sidebarDashboard .sidebarContainerBrand{
+    background-color: var(--primary);
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.sidebarDashboard .sidebarContainerBrand img{
+    height: auto;
+    margin: 0px auto;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.sidebarDashboard .sidebarContainerBrand .logoSidebarOpen{
+    width: 70px;
+}
+.sidebarDashboard .sidebarContainerBrand .logoSidebarClose{
+    width: 35px;
+}
+/* MENU DO SIDEBAR */
+.sidebarDashboard .sidebarMenu{
+    display: block;
+}
+.sidebarDashboard .sidebarMenu a{
+    text-transform: none;
+    text-decoration: none;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu{
+    height: 50px;
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+    cursor: pointer;
+    border-left: 3px solid var(--primary);
+    opacity: 0.8;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu:hover{
+    opacity: 1;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu i{
+    margin-right: 20px;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu p{
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    opacity: 1;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu .tituloSome{
+    opacity: 0;
+    font-size: 1pt;
+}

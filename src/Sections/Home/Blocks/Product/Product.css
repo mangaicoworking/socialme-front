@@ -1,0 +1,14 @@
+.HomeProduct-GeneralContainer{
+    padding: 100px 0px;
+}
+.HomeProduct-GeneralContainer img{
+    width: 50%;
+    display: block;
+    margin: 0px auto;
+}
+.HomeProduct-GeneralContainer h1{
+    font-size: 4vw;
+    line-height: 35pt;
+    margin-bottom: 10px;
+    text-align: center;
+}

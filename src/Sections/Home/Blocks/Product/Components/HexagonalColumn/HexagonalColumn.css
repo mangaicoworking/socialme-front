@@ -1,0 +1,67 @@
+
+.HomeProduct-HexagonalColumnContainer{
+    display: grid;
+    height: 100px;
+    width: max-content;
+    margin: 0px auto;
+    text-align: center;
+}
+  /* HEXAGONALColumn */
+  .HomeProduct-HexagonalColumn {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 59px;
+    height: 35px;
+    margin: 15px auto;
+    border-radius: 9.5px;
+    border-left: 6px solid var(--primary);
+    border-right: 6px solid var(--primary);
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    background-color: var(--primary);
+  }
+  
+  .HomeProduct-HexagonalColumn:before,
+  .HomeProduct-HexagonalColumn:after {
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    content: '';
+    width: 35px;
+    height: 35px;
+    transform: rotate(45deg) skew(-13deg, -13deg);
+    border-radius: 9.5px;
+    transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    background-color: var(--primary);
+  }
+  .HomeProduct-HexagonalColumn:before {
+    top: -14px;
+    left: 6px;
+    border-top: 6px solid var(--primary);
+    border-left: 6px solid var(--primary);
+    box-shadow: -1px -1px 0 0 rgba(255, 255, 255, 0.03), inset 0 0 0 -4px rgba(0, 0, 0, 0.7);
+  }
+  .HomeProduct-HexagonalColumn:after {
+    bottom: -14px;
+    left: 6px;
+    border-bottom: 6px solid var(--primary);
+    border-right: 6px solid var(--primary);
+    box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 0.03), inset 0 0 0 -4px rgba(0, 0, 0, 0.7);
+  }
+  .HomeProduct-HexagonalColumn i{
+    color: var(--white);
+    position: absolute;
+    right: 9px;
+    font-size: 20pt;
+    z-index: 99;
+    top: 4px;
+  }
+  .HomeProduct-HexagonalColumnContainer h3{
+    font-size: 12pt;
+  }
+  .HomeProduct-HexagonalColumnContainer p{
+    font-size: 10pt;
+  }

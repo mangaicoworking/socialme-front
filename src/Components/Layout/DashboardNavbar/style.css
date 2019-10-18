@@ -1,0 +1,144 @@
+/* NAVBAR DASHBOARD */
+.navbar-dashboard{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    background-color: var(--white);
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 8px 5px -5px rgba(0,0,0,0.12)
+}
+.navbar-dashboard .containerBotaoToggleSidebar{
+    background-color: var(--backgroundColor);
+    height: 50px;
+    width: 80px;
+    display: flex;
+    border-top-right-radius: 30px 100px;
+    border-bottom-right-radius: 30px 100px;
+    color: var(--white);
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+.navbar-dashboard .arrowBotaoToggleSidebar{
+    background-color: var(--primary);
+    height: 50px;
+    width: 35px;
+    border-top-right-radius: 30px 100px;
+    border-bottom-right-radius: 30px 100px;
+    align-items: center;
+    display: grid;
+    text-align: center;
+}
+.navbar-dashboard .arrowBotaoToggleSidebar i{
+    font-size: 10pt;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.navbar-dashboard .espelharIcone{
+    transform: rotate(180deg);
+}
+.navbar-dashboard .iconBotaoToggleSidebar{
+    background-color: var(--backgroundColor);
+    height: 50px;
+    width: 45px;
+    border-top-right-radius: 30px 100px;
+    border-bottom-right-radius: 30px 100px;
+    align-items: center;
+    display: grid;
+    text-align: center;
+}
+.navbar-dashboard .iconBotaoToggleSidebar i{
+    background-color: var(--backgroundColor);
+    color: var(--primary);
+    height: 50px;
+    width: 45px;
+    border-top-right-radius: 30px 100px;
+    border-bottom-right-radius: 30px 100px;
+    align-items: center;
+    display: grid;
+    text-align: center;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.navbar-dashboard .iconBotaoToggleSidebar i{
+    font-size: 14pt;
+}
+.navbar-simple .brandLink{
+    margin: 0px auto;
+    animation-name: navbarSimpleLogoEffect;
+    animation-duration: 1s;
+    opacity: 1;
+}
+@keyframes navbarSimpleLogoEffect {
+    from{
+        opacity: 0;
+        transform: translateY(-35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+.navbar-dashboard .rightItens{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-right: 20px;
+}
+.navbarDashboardRightItens-ul{
+    list-style: none;
+    display: flex;
+}
+.navbarDashboardRightItens-li{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    border-left: 2px solid var(--borderColor);
+}
+.navbarDashboardRightItens-li:nth-child(3){
+    border-right: 2px solid var(--borderColor);
+}
+.navbarDashboardRightItens-li:nth-child(4){
+    width: auto;
+    padding: 0px 10px;
+    border-left: none;
+    border-right: 2px solid var(--borderColor);
+}
+.navbarDashboardRightItens-li:nth-child(5){
+    border-left: none;
+    border-right: 2px solid var(--borderColor);
+}
+.navbar-dashboard .rightItens li i{
+    margin: 0px auto;
+}
+.navbar-dashboard .rightItens li a{
+    margin: 0px auto;
+}
+.navbar-dashboard .rightItens i{
+    font-size: 18pt;
+    cursor: pointer;
+    margin: 0px 10px 0px 0px;
+}
+.navbar-dashboard .rightItens .actionsUserProfile{
+    display: flex;
+    align-items: center;
+}
+.navbar-dashboard .rightItens .actionsUserProfile .containerImagemUsuario{
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    background-position: center;
+    background-size: cover;
+    margin-right: 10px;
+}
+.navbar-dashboard .rightItens .actionsUserProfile p{
+    margin-right: 5px;
+}
+.navbar-dashboard .rightItens .actionsUserProfile i{
+    font-size: 8pt;
+    margin-top: 5px;
+}

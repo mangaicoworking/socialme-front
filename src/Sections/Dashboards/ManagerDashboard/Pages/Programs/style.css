@@ -1,0 +1,64 @@
+.cardProgramaIsometric-containerGeral{
+    height: 85px;
+}
+.cardProgramaIsometric-containerGeral:hover .cardProgramaIsometric{
+    transform: translateY(-3px);
+    color: var(--black);
+}
+.cardProgramaIsometric{
+    cursor: pointer;
+    color: var(--textDark);
+    font-size: 14pt;
+    border-radius: 4px;
+    padding: 0px;
+    height: 80px;
+}
+.cardProgramaIsometric-containerGeral:focus .cardProgramaIsometric{
+    outline: none !important;
+}
+.cardProgramaIsometric-containerGeral:active .cardProgramaIsometric{
+    transform: translateY(-3px);
+    transform: translate3d(0, 4px, 0);
+}
+.cardProgramaIsometricWhite{
+    background-color: var(--white);
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.cardProgramaIsometric:active {
+    box-shadow: 0 0 0 1px var(--white) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 0 0 0px rgba(0, 0, 0, 0.4);
+}
+.cardProgramaIsometric-border{
+    width: 100%;
+    height: 5px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: var(--success);
+}
+.cardProgramaIsometric-body{
+    display: flex;
+    padding: 10px;
+}
+.cardProgramaImagem-container{
+    height: -webkit-fill-available;
+    width: 100px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.cardProgramaImagem-container img{
+    width: 100%;
+    height: inherit;
+}
+.cardProgramaInformacoes-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.cardProgramaInformacoes-container h2{
+    font-size:1vw;
+    text-align: center;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}

@@ -1,0 +1,25 @@
+.loginVerification{
+    width: 100%;
+}
+.loginVerification h3{
+    color: var(--dark);
+    margin-bottom: 30px;
+}
+.loginVerification span{
+    color: var(--primary);
+}
+.loginVerification .rowCard{
+    align-items: baseline;
+    margin-left: auto;
+}
+.loginVerification .btnPrimary{
+    font-size: 12pt;
+    display: block;
+    margin-left: auto;
+}
+.loginVerification p{
+    color: var(--primary);
+    margin-top: 10px;
+    display: block;
+    margin-right: auto;
+}

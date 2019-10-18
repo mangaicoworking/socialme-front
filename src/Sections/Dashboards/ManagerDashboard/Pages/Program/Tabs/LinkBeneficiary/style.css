@@ -1,0 +1,60 @@
+.managerDashboardProgramsProgramLinkBeneficiary-generalContainer{
+    margin: 20px auto;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-generalContainer h1{
+    text-align: center;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardSearchGeneralContainer{
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--borderColor);
+    width: 300px;
+    height: 270px;
+    margin: 20px auto;
+    padding: 10px;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardSearchGeneralContainer button{
+    margin: 0px auto;
+    display: block;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundGeneralContainer{
+    background-color: var(--gray);
+    color: var(--white);
+    width: 300px;
+    height: 270px;
+    margin: 20px auto;
+    text-align: center;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundGeneralContainer img{
+    width: 100px;
+    margin: 20px auto 0px;
+    display: block;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundButtons{
+    margin-top: 30px;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundButtons button:last-child{
+    float: right;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundSuccess{
+    padding: 10px;
+    height: 270px;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundDefault{
+    background-color: var(--backgroundColor);
+    color: var(--textDark);
+    width: 100%;
+    height: 270px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundDefault h4{
+    font-size: 14pt;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundError{
+    padding: 10px;
+}
+.managerDashboardProgramsProgramLinkBeneficiary-cardFoundError h4{
+    margin-top: 20px;
+    font-size: 14pt;
+}

@@ -1,0 +1,8 @@
+.painelGestoraProgramasAdicionar-containerGeral{
+    background-color: var(--white);
+    border: 1px solid var(--borderColor);
+    padding: 20px;
+}
+.painelGestoraProgramasAdicionar-containerGeral button{
+    font-size: 12pt ;
+}

@@ -1,0 +1,76 @@
+/* NAVBAR */
+.navbar-main {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 99;
+}
+.navbar-main .brand {
+    height: 30px;
+    width: auto;
+}
+.navbar-main ul {
+    list-style: none;
+}
+.navbar-main li {
+    display: inline-block;
+    width: auto;
+    margin: 0px 10px;
+    text-align: center;
+    color: var(--white);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.navbar-main li:hover {
+    border-bottom: 2px solid var(--white);
+    color: var(--white);
+    opacity: 1;
+}
+.navbar-main .right-buttons {
+    display: flex;
+    align-items: center;
+}
+.navbar-main a{
+    opacity: 1;
+}
+.navbar-main:first-child .btn{
+    padding: 2px 5px;
+    margin-right: 10px;
+    background-color: var(--white);
+    color: var(--textDark);
+    opacity: 1;
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5)
+}
+.navbar-main:first-child .btn:hover{
+    color: var(--primary);
+}
+/* NAVBAR UNAUTHENTICATED */
+
+/* NAVBAR SIMPLE */
+.navbar-simple{
+    background-color: var(--primary);
+}
+.navbar-simple .brand{
+    margin: 0px auto;
+    opacity: 1;
+}
+.navbar-simple .brandLink{
+    margin: 0px auto;
+    animation-name: navbarSimpleLogoEffect;
+    animation-duration: 1s;
+    opacity: 1;
+}
+@keyframes navbarSimpleLogoEffect {
+    from{
+        opacity: 0;
+        transform: translateY(-35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}

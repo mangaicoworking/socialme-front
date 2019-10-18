@@ -1,0 +1,93 @@
+.Login-ContainerGeral{
+    background-color: var(--backgroundColor);
+    width: 100%;
+    height: 100vh;
+}
+.Login-Navbar{
+    width: 100%;
+    height: 50px;
+    background-color: var(--primary);
+    padding-top: 5px;
+    display: flex;
+}
+.Login-Navbar-Logo{
+    height: 40px;
+    display: block;
+    margin: 0px auto;
+    animation-name: LoginNavbarLogo;
+    animation-duration: 1s;
+}
+@keyframes LoginNavbarLogo {
+    from{
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+.Login-Navbar-RightItens{
+    padding-top: 10px;
+    position: absolute;
+    right: 0;
+}
+.Login-Card-GeneralContainer{
+    background-color: var(--white);
+    border: 1px solid var(--borderColor);
+    padding: 30px;
+    margin: 30px auto 0px;
+    border-radius: 8px;
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+    animation-name: pageLoginFadeCard;
+    animation-duration: 1s;
+    width: min-content;
+}
+@keyframes pageLoginFadeCard {
+    from{
+        opacity: 0;
+        transform: scale(1);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.Login-Card-RegisterPersonContainer{
+    width: 100%;
+}
+.Login-Footer{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    padding-top: 5px;
+    border-top: 1px solid var(--borderColor);
+}
+.Login-Footer-ul{
+    width: max-content;
+    list-style: none;
+    display: flex;
+    margin: 0px auto;
+}
+.Login-Footer-li{
+    color: var(--textGray);
+    margin: 0px 5px;
+}
+.Login-Footer-li a{
+    color: var(--textGray);
+    text-decoration: none;
+    text-transform: none;
+}
+.Login-Notification-GeneralContainer{
+    background-color: var(--backgroundColor);
+    height: 90px;
+}
+.Login-Notification-ContainerBox{
+    width: 400px;
+    display: block;
+    margin: 0px auto;
+    padding: 20px 0px;
+}

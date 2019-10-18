@@ -1,0 +1,17 @@
+.managerDashboardProgram-informations-generalContainer{
+    display: flex;
+}
+.managerDashboardProgram-informations-imageContainer{
+    padding: 0px 10px;
+}
+.managerDashboardProgram-informations-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-position: center;
+    background-size: cover;
+    background-color: yellow;
+}
+.managerDashboardProgram-informations-informations{
+    display: grid;
+}

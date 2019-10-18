@@ -1,0 +1,15 @@
+.managerDashboardProgram-generalContainer{
+    background-color: var(--white);
+    padding: 20px;
+}
+.managerDashboardProgram-actionsGeneralContainer{
+    display: flex;
+    height: 100px;
+    align-items: center;
+}
+.managerDashboardProgram-actionsGeneralContainer a{
+    text-transform: none;
+    text-decoration: none;
+    opacity: 1;
+    color: var(--textGray);
+}

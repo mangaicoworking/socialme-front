@@ -1,0 +1,44 @@
+/* VINCULAR BENEFICIARIO */
+.cardProgramaIsometric-vincularBeneficiario{
+    background-color: var(--white);
+    border: 1px solid var(--borderColor);
+    width: 100%;
+    padding: 0px;
+    height: 0px;
+    overflow: hidden;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.cardProgramaIsometric-vincularBeneficiario-open{
+    height: auto;
+    padding: 10px;
+}
+.cardProgramaIsometric-vincularBeneficiario p{
+    text-align: center;
+}
+.cardProgramaIsometric-vincularBeneficiario img{
+    width: 60px;
+    display: block;
+    margin: 0px auto;
+}
+.cardProgramaIsometric-vincularBeneficiario span{
+    font-size: 10pt;
+    display: block;
+    margin: 0px auto 10px;
+    width: max-content;
+}
+.cardProgramaIsometric-vincularBeneficiario button{
+    font-size: 12pt;
+    display: block;
+    margin: 0px auto;
+}
+.cardProgramaIsometric-vincularBeneficiario button:nth-child(1){
+    background-color: var(--secondary);
+    color: var(--black);
+    box-shadow: 0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.cardProgramaIsometric-vincularBeneficiario .btn-vincula{
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+    box-shadow: 0 0 0 0px var(--primaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--primaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5) !important;
+}

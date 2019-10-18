@@ -1,0 +1,61 @@
+.HeaderHome-GeneralContainer {
+
+}
+.HeaderHome-Section1 {
+    height: 400px;
+    background: var(--primary);
+    position: relative;
+    padding-top: 50px;
+    display: flex;
+}
+.HeaderHome-Section1Diagonal {
+    width: 0;
+    height: 0;
+    border-top: 200px solid var(--primary);
+    border-left: 100vw solid transparent;
+}
+.HeaderHome-Section1-Circle{
+    background-color: var(--primaryLight);
+    color: var(--white);
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    margin: -150px auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    display: grid;
+    font-size: 2vw;
+}
+.HeaderHome-Section1-ImageContainer{
+    height: 350px;
+    width: 60%;
+}
+.HeaderHome-Section1-Image{
+    width: auto;
+    height: 100%;
+    display: block;
+    margin: 0px auto;
+}
+.HeaderHome-Section1-Texts{
+    color: var(--white);
+    text-align: left;
+    width: 30%;
+    padding: 10px;
+    align-items: center;
+    align-content: center;
+    display: grid;
+}
+.HeaderHome-Section1-Texts h1{
+    font-size: 3.8vw;
+    margin-bottom: 20px;
+}
+.HeaderHome-Section1-Texts p{
+    font-size: 1.5vw;
+    margin-bottom: 20px;
+}
+.HeaderHome-Section1-Texts button{
+    font-size: 1vw;
+    padding: 10px 20px;
+    width: 100px;
+}

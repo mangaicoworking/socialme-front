@@ -1,0 +1,23 @@
+.HomeTechnology{
+    width: 100%;
+    padding: 100px 0px;
+}
+.HomeTechnology-ImageContainer img{
+    height: 250px;
+    display: block;
+    margin: 0px auto;
+}
+.HomeTechnology-TextContainer{
+    width: 350px;
+    float: right;
+}
+.HomeTechnology-TextContainer h1{
+    font-size: 4vw;
+    line-height: 35pt;
+    margin-bottom: 10px;
+}
+.HomeTechnologyRow{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
