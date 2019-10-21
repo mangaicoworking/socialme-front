@@ -30,8 +30,6 @@ import BeneficiaryDashboardFQA from './Sections/Dashboards/BeneficiaryDashboard/
 
 import { TopicList } from './views/TopicList';
 
-
-
 const TopicDetail = ({ routes, match }) => {
   return (
     <div>
@@ -50,11 +48,13 @@ const routes = [
   {
     path: "/",
     exact: true,
+    protected: false,
     component: Home
   },
   {
     path: "/me",
     component: Dashboards,
+    protected: true,
     routes: [
       {
         path: "/me/painel-da-gestora",
@@ -148,6 +148,7 @@ const routes = [
   },
   {
     path: "/entrar",
+    protected: false,
     component: Login,
   },
   {

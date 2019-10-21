@@ -72,6 +72,7 @@
     border-bottom: 1px solid var(--borderColor);
     border-right: 1px solid var(--borderColor);
     border-left: 1px solid var(--borderColor);
+    height: auto;
 }
 .dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento .btn-AddRelacionamento{
   margin-right: 10px;
@@ -118,6 +119,7 @@
   }
   .drawer-out.opencan {
     height: 70px;
+    border-bottom: 1px solid var(--backgroundColor);
   }
   .drawer-out.opencan .drawer {
     opacity: 1;

@@ -99,18 +99,8 @@
     align-items: center;
     border-left: 2px solid var(--borderColor);
 }
-.navbarDashboardRightItens-li:nth-child(3){
-    border-right: 2px solid var(--borderColor);
-}
-.navbarDashboardRightItens-li:nth-child(4){
+.navbarDashboardRightItens-li:nth-child(2){
     width: auto;
-    padding: 0px 10px;
-    border-left: none;
-    border-right: 2px solid var(--borderColor);
-}
-.navbarDashboardRightItens-li:nth-child(5){
-    border-left: none;
-    border-right: 2px solid var(--borderColor);
 }
 .navbar-dashboard .rightItens li i{
     margin: 0px auto;

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import Logo from './../../../../../Assets/Images/logo.png';
-import SelectLanguage from './../../../../SelectLanguage';
+import SelectLanguage from './../../Components/SelectLanguage';
+import { ThemeContext } from './../../../../../Contexts/ThemeContext';
 
-export default function NavbarUnauthenticated(props) {
+export default function NavbarUnauthenticated() {
+    const { toggleTheme } = useContext(ThemeContext);
     return (
         <>
           <nav className="navbar-main">
@@ -12,7 +14,7 @@ export default function NavbarUnauthenticated(props) {
                 <div className="col-md-1">
                   <img className="brand" src={Logo} alt="Logo Social Me" />
                 </div>
-                <div className="col-md-10 ml-auto right-buttons">
+                <div className="col-md-9 ml-auto right-buttons">
                   <div>
                     <ul>
                       {/* 
@@ -32,6 +34,7 @@ export default function NavbarUnauthenticated(props) {
                       <li>Impacto</li>
                       <li>Blog</li>
                       <li>Doe</li>
+                      <button onClick={toggleTheme}>Toggle the theme</button>
                     </ul>
                   </div>
                   <div className="dividerVertical"></div>

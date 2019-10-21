@@ -1,0 +1,92 @@
+.DashboardNavbar-UserDropdownMenu-GeneralContainer{
+  height: 50px;
+}
+.DashboardNavbar-UserDropdownMenu-container{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  min-width: 220px;
+  width: max-content;
+  padding: 0px 10px;
+}
+.DashboardNavbar-UserDropdownMenu-Dropdown-containerImagemUsuario{
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  background-position: center;
+  background-size: cover;
+  margin-right: 10px;
+}
+.DashboardNavbar-UserDropdownMenu-container p{
+  margin-right: 5px;
+  font-size: 12pt;
+}
+.DashboardNavbar-UserDropdownMenu-container i{
+  font-size: 8pt !important;
+  margin-top: 5px;
+}
+.DashboardNavbar-UserDropdownMenu-Dropdown { 
+  display: block;
+  min-width: 200px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  border-left: 4px solid var(--white);
+  background: #fff;
+  font-size: 1.55em;
+  color: #656565;
+  font-weight: normal;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.DashboardNavbar-UserDropdownMenu-Dropdown-open { 
+  border-left: 4px solid var(--primary);
+}
+
+.DashboardNavbar-UserDropdownMenu-Dropdown-ul-close { 
+  position: absolute;
+  top: 100%;
+  left: -4px; /* move content -4px because of container left border */
+  min-width: 200px;
+  padding: 5px 0px;
+  display: none;
+  border-left: 4px solid #8e9196;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.DashboardNavbar-UserDropdownMenu-Dropdown-ul-open {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: -4px; /* move content -4px because of container left border */
+  min-width: 200px;
+  padding: 5px 0px;
+  display: block;
+  border-left: 4px solid #8e9196;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  width: -webkit-fill-available;
+}
+
+.DashboardNavbar-UserDropdownMenu-Dropdown ul li { 
+  font-size: 0.7em; 
+}
+.DashboardNavbar-UserDropdownMenu-Dropdown ul li a { 
+  text-decoration: none;
+  display: block;
+  color: var(--textDark);
+  padding: 7px 15px;
+}
+.DashboardNavbar-UserDropdownMenu-Dropdown ul li a:hover {
+  color: var(--primary);
+  border-right: 4px solid var(--primary);
+  background: #e7f0f7;
+}
+

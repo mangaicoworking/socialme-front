@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './../../../Assets/Images/logo.png';
 import SidebarDaBeneficiaria from './SidebarDaBeneficiaria';
 import SidebarDaGestora from './SidebarDaGestora';
+import './style.css';
 
 export default function PainelSidebar(props) {
   const renderSidebarAtual = () =>{
@@ -31,7 +33,9 @@ export default function PainelSidebar(props) {
   return (
     <div className="sidebarDashboard">
       <div className="sidebarContainerBrand">
-        <img className={" "+(props.sidebarOpen ? 'logoSidebarOpen' : 'logoSidebarClose')} src={Logo} alt="Logo Social Me" />
+        <Link className="sidebarContainerBrand-a" to="/">
+          <img className={" "+(props.sidebarOpen ? 'logoSidebarOpen' : 'logoSidebarClose')} src={Logo} alt="Logo Social Me" />
+        </Link>
       </div>
       
       {renderSidebarAtual()}

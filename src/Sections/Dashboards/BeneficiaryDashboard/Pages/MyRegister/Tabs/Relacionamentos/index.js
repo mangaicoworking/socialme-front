@@ -16,6 +16,7 @@ export default function DashboardBeneficiaryMeuCadastroRelacionamento() {
     cpfDoNovoRelacionamento: '', /* 02713530237 */
     nomedaPessoaDoNovoRelacionamento: '',
     idDaPessoaDoNovoRelacionamento: '',
+    fotoDaPessoaDoNovoRelacionamento: '',
     tipoDoNovoRelacionamento: '',
     auxPegarDados: false,
     //Alerta
@@ -31,13 +32,17 @@ export default function DashboardBeneficiaryMeuCadastroRelacionamento() {
 //BUSCA UM NOVO RELACIONAMENTO (CPF COM 11 DIGITOS)
   useEffect(() => {
     if(values.cpfDoNovoRelacionamento.length === 11){
-      api.get(`buscarParaRelacionamento/${values.userId}/${values.cpfDoNovoRelacionamento}`)
+      const obj = {
+        cpf: values.cpfDoNovoRelacionamento
+      }
+      api.post(`person/searchByDocument`,obj)
       .then(res => {
-        //console.log(res);
+        console.log(res);
         setValues({ 
           ...values, 
-          nomedaPessoaDoNovoRelacionamento: res.data.pessoa.dados.nome,
-          idDaPessoaDoNovoRelacionamento: res.data.pessoa._id 
+          nomedaPessoaDoNovoRelacionamento: res.data.data.person.profile.name,
+          idDaPessoaDoNovoRelacionamento: res.data.data.person._id,
+          fotoDaPessoaDoNovoRelacionamento: res.data.data.person.profile.photo
         });
       })
       .catch(function (error) {
@@ -64,13 +69,21 @@ useEffect(() => {
 }, []);
 //PEGA OS DADOS DA API
   const pegandoDadosDaAPI = () => {
-    //console.log('LISTANDO');
-    api.get(`relacionamentos/${values.userId}`)
+    const obj = {
+      quantidade :"25",
+      pagina: "1",
+      ordenar: {
+        por:"valor",
+        ordem:"asc"
+      }
+    };
+    api.post(`relationships`, obj)
     .then(res => {
       console.log(res.data);
+      console.log(res.data.data.RelationshipsList)
       setValues({ 
         ...values, 
-        todosOsRelacionamentos: res.data.relacionamentos,
+        todosOsRelacionamentos: res.data.data.RelationshipsList,
         mostrarFormAddRelacionamento: false
       });
     })
@@ -83,13 +96,11 @@ useEffect(() => {
     setValues({ ...values, auxPegarDados: false });
     console.log('ADICIONANDO');
     const obj = {
-      _idSolicitante: values.userId,
-      _idPessoa: values.idDaPessoaDoNovoRelacionamento,
-      vinculo: values.tipoDoNovoRelacionamento
-    };
-    api.post(`relacionamento`,obj)
+      personId: values.idDaPessoaDoNovoRelacionamento,
+      link: values.tipoDoNovoRelacionamento
+    }
+    api.post(`relationship/new`,obj)
     .then(res => {
-      console.log('Enviando Obj');
       console.log(res.data);
       switch (res.data.codigo) {
         case 'CODIGOTUDOOK':
@@ -239,8 +250,8 @@ const toggleRowEditarRelacionamento = (idDaRowEmEdicao, vinculo) => {
           <div className="drawer">
             <li className="dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento">
               <div className="dashboardBeneficiaryMeuCadastroRelacionamento-li-imgContainer">
-                {values.nomedaPessoaDoNovoRelacionamento.length > 2 ?
-                  <img src={ImageUser} alt="Imagem padrão de usuário" />
+                {values.fotoDaPessoaDoNovoRelacionamento ?
+                  <img src={values.fotoDaPessoaDoNovoRelacionamento} alt="Imagem padrão de usuário" />
                 :
                   <img src={ImageCircle} alt="Imagem padrão de usuário" />
                 }
@@ -263,21 +274,11 @@ const toggleRowEditarRelacionamento = (idDaRowEmEdicao, vinculo) => {
                 >
                   <option value="">Selecione um relacionamento</option>
                   <option value="PAI">Pai</option>
-                  <option value="MÃE">Mãe</option>
+                  <option value="MAE">Mãe</option>
                   <option value="FILHO">Filho</option>
                   <option value="FILHA">Filha</option>
-                  <option value="AVÔ">Avô</option>
-                  <option value="AVÓ">Avó</option>
-                  <option value="NETO">Neto</option>
-                  <option value="NETA">Neta</option>
-                  <option value="BISAVÔ">Bisavô</option>
-                  <option value="BISAVÓ">Bisavó</option>
-                  <option value="BISNETO">Bisneto</option>
-                  <option value="BISNETA">Bisneta</option>
-                  <option value="NOIVO">Noivo</option>
-                  <option value="NOIVA">Noiva</option>
-                  <option value="MARIDO">Marido</option>
-                  <option value="ESPOSA">Esposa</option>
+                  <option value="AMIGO">Amigo</option>
+                  <option value="AMIGA">Amiga</option>
                 </select>
               </div>
               <button onClick={() => addRelacionamento()} className="btn btn-primary btn-AddRelacionamento">Salvar Alterações</button>
@@ -299,10 +300,10 @@ const renderRowsDosRelacionamentos= (item) => {
             <>
             <div className="dashboardBeneficiaryMeuCadastroRelacionamento-li-edicao">
           <div className="dashboardBeneficiaryMeuCadastroRelacionamento-li-imgContainer">
-            <img src={ImageUser} alt="Imagem padrão de usuário" />
+            <img src={item.linkedPerson.profile.photo ? item.linkedPerson.profile.photo : ImageUser} alt="Imagem padrão de usuário" />
           </div>
           <div className="form-group">
-            <p>{item.nome}</p>
+            <p>{item.linkedPerson.profile.name}</p>
           </div>
           <div className="form-group">
             <select 
@@ -312,21 +313,11 @@ const renderRowsDosRelacionamentos= (item) => {
             >
               <option value="">Selecione um relacionamento</option>
               <option value="PAI">Pai</option>
-              <option value="MÃE">Mãe</option>
+              <option value="MAE">Mãe</option>
               <option value="FILHO">Filho</option>
               <option value="FILHA">Filha</option>
-              <option value="AVÔ">Avô</option>
-              <option value="AVÓ">Avó</option>
-              <option value="NETO">Neto</option>
-              <option value="NETA">Neta</option>
-              <option value="BISAVÔ">Bisavô</option>
-              <option value="BISAVÓ">Bisavó</option>
-              <option value="BISNETO">Bisneto</option>
-              <option value="BISNETA">Bisneta</option>
-              <option value="NOIVO">Noivo</option>
-              <option value="NOIVA">Noiva</option>
-              <option value="MARIDO">Marido</option>
-              <option value="ESPOSA">Esposa</option>
+              <option value="AMIGO">Amigo</option>
+              <option value="AMIGA">Amiga</option>
             </select>
           </div>
           <button onClick={() => atualizarRelacionamento(item._id)} className="btn btn-primary">Salvar Alterações</button>
@@ -336,14 +327,14 @@ const renderRowsDosRelacionamentos= (item) => {
           :
             <>
           <div className="dashboardBeneficiaryMeuCadastroRelacionamento-li-imgContainer">
-            <img src={ImageUser} alt="Imagem padrão de usuário" />
+            <img src={item.linkedPerson.profile.photo ? item.linkedPerson.profile.photo : ImageUser} alt="Imagem padrão de usuário" />
           </div>
           <div className="dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo">
-            <p>{item.nome} <span>(pendente)</span></p>
-            <span>{item.vinculo}</span>
+            <p>{item.linkedPerson.profile.name} <span>(pendente)</span></p>
+            <span>{item.link}</span>
           </div>
           <div className="dashboardBeneficiaryMeuCadastroRelacionamento-buttonsActions">
-            <button onClick={() => toggleRowEditarRelacionamento(item._id, item.vinculo)} className="btn btn-transparent btn-transparent-primary">
+            <button onClick={() => toggleRowEditarRelacionamento(item._id, item.link)} className="btn btn-transparent btn-transparent-primary">
                 <i className="fas fa-pencil-alt"></i>
                 Editar
             </button>

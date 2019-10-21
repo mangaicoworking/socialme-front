@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import './Verification.css';
 import { cpfMaskContinuos, cnpjMask  } from './../../../../Services/masks';
 import api from './../../../../Services/api';
-import { tsPropertySignature } from "@babel/types";
+import { DebugContext } from './../../../../Contexts/DebugContext';
 
 const LoginVerification = (props) => {
+    const { DebugConsole } = useContext(DebugContext);
+
     const [login, setLogin] = useState({
         mainDocument: '',
         warranty: ''
@@ -14,7 +16,7 @@ const LoginVerification = (props) => {
     });
 //HANDLE CHANGE
     const handleChangeMainDocument = name => event =>  {
-        if(event.target.value.length > 19){
+        if(event.target.value.length > 18){
             return;
         }
         if(event.target.value.length  <= 14){
@@ -58,24 +60,41 @@ useEffect(() => {
         api.post('/prelogin', obj)
         .then(res => {
             //console.log(res);
-            // Não encontrou ninguém : ABF54A98CD1A6ED
-            // Encontrou alguém, mas sem senha: ABF54A98CDE1987
-            // Encontrou alguém, com senha: ABF54A98CDE14AA
+            if(DebugConsole)console.log('Query API on route -> /prelogin ', res );
+            // Não Encontrou Pessoa: ABF54A98CD1A6ED
+            // Encontrou Pessoa, mas sem senha: ABF54A98CDE1987
+            // Encontrou Pessoa, com senha: ABF54A98CDE14AA
+            // Não Encontrou Instituição: ABF54A98CD74238
+            // Encontrou Instituição, sem senha: ABF54A98CDE1988
+            // Encontrou Instituição, com senha: ABF54A98CD74AAA
             switch(res.data.header.code.toUpperCase()){
-                // Não encontrou
+                // PESSOA: Não encontrou
                 case 'ABF54A98CD1A6ED':
-                default:
                     return(
                         props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
                     )
+                // PESSOA: Encontrou, sem senha
                 case 'ABF54A98CDE1987':
                     return(
                         props.verificationResponse(res.data.header.code, mainDocument.value, res.data.data.person)
                     )
+                // PESSOA: Encontrou, com senha
                 case 'ABF54A98CDE14AA':
                     return (
                         props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
                     )
+                // INSTITUIÇÃO: Não encontrou
+                case 'ABF54A98CD74238':
+                    return(
+                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                    )
+                // INSTITUIÇÃO: Encontrou, com senha
+                case 'ABF54A98CD74AAA':
+                    return (
+                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                    )
+                default:
+                    return;
             }
             
         })

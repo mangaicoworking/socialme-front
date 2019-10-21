@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import Logo from './../../../../../Assets/Images/logo.png';
 import SelectLanguage from './../../../../SelectLanguage';
+import { AuthContext } from './../../../../../Contexts/AuthContext';
 
-export default function NavbarUnauthenticated(props) {
+export default function NavbarAuthenticated(props) {
+  const { person, institution } = useContext(AuthContext);
+
+  const renderUserNavbar = () => {
+    if(person){
+      return(
+        <>
+          <Link to="/me/painel-da-beneficiaria/minha-conta"><button className="btn btn-outline">Acessar</button></Link>
+          <p style={{color: 'var(--white)', marginRight: '10px'}}>Olá {person.profile.name} !</p>
+        </>
+      )
+    }else if(institution){
+      return(
+        <>
+          <Link to="/me/painel-da-gestora/movimentacoes"><button className="btn btn-outline">Acessar</button></Link>
+          <p style={{color: 'var(--white)', marginRight: '10px'}}>Olá {institution.profile.name} !</p>
+        </>
+      )
+    }else{
+      return(
+        <>
+          <Link to="/entrar"><button className="btn btn-outline">Registrar</button></Link>
+          <Link to="/entrar"><button className="btn btn-outline">Entrar</button></Link>
+        </>
+      )
+    }
+  }
     return (
         <>
           <nav className="navbar-main">
@@ -36,8 +63,7 @@ export default function NavbarUnauthenticated(props) {
                   </div>
                   <div className="dividerVertical"></div>
                   <SelectLanguage />
-                  <Link to="/entrar"><button className="btn btn-outline">Registrar</button></Link>
-                  <Link to="/entrar"><button className="btn btn-outline">Entrar</button></Link>
+                  {renderUserNavbar()}
                 </div>
               </div>
             </div>
