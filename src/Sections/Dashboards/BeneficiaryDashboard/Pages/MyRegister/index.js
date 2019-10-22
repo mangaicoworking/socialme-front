@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
 import TabDados from './Tabs/Dados';
-import TabRelacionamentos from './Tabs/Relacionamentos';
+import { RelantionshipsTab } from './Tabs/Relantionships';
 
 const beneficiaryMeuCadastroItensDoMenu = [
   {
@@ -44,7 +44,7 @@ export default function DashboardBeneficiaryMeuCadastro() {
       case 'Dados':
         return <TabDados />;
       case 'Relações':
-          return <TabRelacionamentos />;
+          return <RelantionshipsTab />;
       default:
         return <TabDados />
     }

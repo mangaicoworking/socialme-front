@@ -5,7 +5,8 @@ import { DebugContext } from './../Contexts/DebugContext';
 export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
-    const { DebugConsole } = useContext(DebugContext);
+    const { DebugContextConsole } = useContext(DebugContext);
+    const DebugConsole = DebugContextConsole.AuthContext;
 
     const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
     const [token, setToken] = useState();
@@ -15,7 +16,7 @@ const AuthContextProvider = (props) => {
     useEffect(() => {
         let tokenLocalStorage = localStorage.getItem('token');
         if(tokenLocalStorage){
-            if(DebugConsole)console.log('Token found in LocalStorage');
+            if(DebugConsole){console.log('Token found in LocalStorage')};
             const obj = {
                 'mundo-data-token' : tokenLocalStorage
             }
@@ -49,11 +50,11 @@ const AuthContextProvider = (props) => {
         }else{
             if(DebugConsole)console.log('Token not found in LocalStorage');
         }
-    }, [token, DebugConsole])
+    }, [token])
 
     useEffect(() => {
         if(person){
-            console.log('PERSON!!! -> ', person);
+            if(DebugConsole)console.log('Person Found: ', person);
         }
     }, [person])
 

@@ -3,21 +3,19 @@ import React, { useState, createContext } from 'react';
 export const DebugContext = createContext();
 
 const DebugContextProvider = (props) => {
-    const [debug] = useState({
-        console: true
-    });
-    const DebugConsole = (valueConsole, object) => {
-        if(debug.console){
-            if(object){
-                return console.log(valueConsole, object);
-            }else{
-                return console.log(valueConsole);
+    const [console] = useState({
+        AuthContext: false,
+        Dashboards: {
+            Beneficiary:{
+                MyResgister:{
+                    Relantionships: true
+                }
             }
-            
         }
-    }
+    });
+
     return ( 
-        <DebugContext.Provider value={{ DebugConsole: DebugConsole }}>
+        <DebugContext.Provider value={{ DebugContextConsole: console }}>
             {props.children}
         </DebugContext.Provider>
      );

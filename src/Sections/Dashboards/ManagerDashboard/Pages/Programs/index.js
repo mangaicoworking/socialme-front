@@ -28,8 +28,9 @@ export default function PainelGestoraProgramas({routes, match}) {
         ordem:"asc"
       }
     };
-    api.post(`/programas/${values.gestoraId}`, obj)
+    api.post(`/programs`, obj)
     .then(res => {
+      console.log(res.data)
       if(res.data.meta.codigo === '0004002001'){
         setValues({ 
           ...values, 

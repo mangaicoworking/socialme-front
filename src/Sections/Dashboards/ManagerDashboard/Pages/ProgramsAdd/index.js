@@ -7,6 +7,9 @@ import Alert from './../../../../../Components/Alert';
 export default function ManagerDashboarProgramsAdd() {
   const [values, setValues] = useState({
     gestoraId: '5d93a0417e87f339288f189b',
+    type: '',
+    territorialCoverage: '',
+    status: '',
     nome: '',
     descricao: '',
     imagem: '',
@@ -23,14 +26,20 @@ const handleChange = name => event => {
 //ADICIONANDO
 const adicionarNovoPrograma = () =>{
   setValues({ ...values, usandoAPI: false });
-      const obj = {
-      nome: values.nome,
-      descricao: values.descricao,
-      imagem : {
-        url: values.imagem
-      }
+    const obj = {
+      name: values.nome,
+      type: values.type,
+      territorialCoverage: values.territorialCoverage,
+      photo: values.imagem,
+      status: values.status,
+      description: values.descricao,
+      tags: [
+        "emilhaço",
+        "fiote"
+      ]
   };
-  api.post(`novoPrograma/${values.gestoraId}`, obj)
+  console.log(obj)
+  api.post(`program/new`, obj)
       .then(res => {
       console.log(res.data);
       switch (res.data.meta.codigo) {
@@ -77,6 +86,42 @@ const renderAlerta = () => {
                     placeholder="Digite o nome do novo tipo"
                     value={values.nome}
                     onChange={handleChange('nome')}
+                />
+                </div>
+            </div>
+            <div className="col-sm-12 col-md-4 col-lg-4">
+                <div className="form-group">
+                <label className="form-label">Tipo de Programa</label>
+                <input 
+                    type="text" 
+                    className="form-control input-text" 
+                    placeholder="Digite o tipo do programa"
+                    value={values.type}
+                    onChange={handleChange('type')}
+                />
+                </div>
+            </div>
+            <div className="col-sm-12 col-md-4 col-lg-4">
+                <div className="form-group">
+                <label className="form-label">territorialCoverage</label>
+                <input 
+                    type="text" 
+                    className="form-control input-text" 
+                    placeholder="territorialCoverage"
+                    value={values.territorialCoverage}
+                    onChange={handleChange('territorialCoverage')}
+                />
+                </div>
+            </div>
+            <div className="col-sm-12 col-md-4 col-lg-4">
+                <div className="form-group">
+                <label className="form-label">status</label>
+                <input 
+                    type="text" 
+                    className="form-control input-text" 
+                    placeholder="status"
+                    value={values.status}
+                    onChange={handleChange('status')}
                 />
                 </div>
             </div>

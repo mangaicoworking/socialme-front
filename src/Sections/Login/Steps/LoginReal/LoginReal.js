@@ -21,7 +21,6 @@ const LoginReal = (props) => {
     };
 //LOGIN
 const login = () => {
-    DebugConsole('Função de Login Iniciada');
     const obj = {
         login: props.login.replace(/[^\d]+/g,''),
         password: values.password
@@ -31,7 +30,6 @@ const login = () => {
     // INSTITUTION SUCCESS > ABF54E009A78B0C
     .then(res => {
         //console.log(res);
-        DebugConsole('Resposta da API para /login -> ', res);
         let token = res.data.data['mundo-data-token'];
         switch(res.data.header.code){
             case 'ABF54E009A77B0C':
