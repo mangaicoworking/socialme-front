@@ -10,12 +10,13 @@ import api from './../../../../../Services/api';
 
 export default function ManagerDashboardProgram({routes, match}) {
   const [values, setValues] = useState({
-    programa: [],
+    programa: {},
     consultouAPI: false
   });
   //PEGA DADOS DA PESSOA DA API
   useEffect(() => {
-    api.get(`/programa/${match.params.idDoPrograma}`)
+    /*
+    api.get(`/program/${match.params.idDoPrograma}`)
     .then(res => {
       console.log(res.data)
       setValues({ 
@@ -27,7 +28,59 @@ export default function ManagerDashboardProgram({routes, match}) {
     .catch(function (error) {
         console.log(error);
     })
+    */
+   const obj = {
+      quantidade :"25",
+      pagina: "1",
+      ordenar: {
+        por:"valor",
+        ordem:"asc"
+      }
+    };
+    api.post(`/programs`, obj)
+    .then(res => {
+      for(let i = 0; i <= res.data.data.ProgramsList.length; i++){
+        if(res.data.data.ProgramsList[i]._id === match.params.idDoPrograma){
+          setValues({ 
+            ...values, 
+            programa: res.data.data.ProgramsList[i],
+            consultouAPI: true
+          });
+        }
+      }
+
+    })
+    .catch(function (error) {
+      //console.log(error);
+    })
   }, []);
+
+  const vaiPokebola = () => {
+    const obj = {
+      quantidade :"25",
+      pagina: "1",
+      ordenar: {
+        por:"valor",
+        ordem:"asc"
+      }
+    };
+    api.post(`/programs`, obj)
+    .then(res => {
+      for(let i = 0; i <= res.data.data.ProgramsList.length; i++){
+        if(res.data.data.ProgramsList[i]._id === match.params.idDoPrograma){
+          setValues({ 
+            ...values, 
+            programa: res.data.data.ProgramsList[i],
+            consultouAPI: true
+          });
+        }
+      }
+
+    })
+    .catch(function (error) {
+      //console.log(error);
+    })
+  }
 
   const PaginaLoad = () => {
     return(
@@ -87,7 +140,7 @@ export default function ManagerDashboardProgram({routes, match}) {
           <>
             <div className="row">
               <div className="col-md-5">
-                <TableLatestRegisters idDoPrograma={match.params.idDoPrograma} />
+                <TableLatestRegisters vaiPokebola={vaiPokebola} idDoPrograma={match.params.idDoPrograma} />
               </div>
               <div className="col-md-7">
                 <TableBenefits />

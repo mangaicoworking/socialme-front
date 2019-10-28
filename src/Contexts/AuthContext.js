@@ -79,6 +79,9 @@ const AuthContextProvider = (props) => {
     }
 
     const logout = () => {
+        setPerson(null);
+        setInstitution(null);
+        setIsAuth(false);
         localStorage.clear();
     }
 

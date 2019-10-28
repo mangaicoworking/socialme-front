@@ -11,10 +11,10 @@ export default function ManagerDashboardProgramsCard(props) {
                 <div className="managerDashboardProgramsCard-containerGeral-cardBorder"></div>
                 <div className="managerDashboardProgramsCard-containerGeral-cardBody">
                     <div className="managerDashboardProgramsCard-containerGeral-cardBodyImageContainer">
-                    <div style={{backgroundImage: `url('${props.programa.imagem.url}')`}} className="managerDashboardProgramsCard-containerGeral-cardBodyImage"></div>
+                    <div style={{backgroundImage: `url('${props.programa.photo}')`}} className="managerDashboardProgramsCard-containerGeral-cardBodyImage"></div>
                     </div>
                     <div className="managerDashboardProgramsCard-containerGeral-cardBodyInformation">
-                        <h3>{props.programa.nome}</h3>
+                        <h3>{props.programa.name}</h3>
                         <p>Beneficiarios no programa: <span>221</span></p>
                         <p>Atividades Desenvolvidas: <span>1.329</span></p>
                         <p>Investimentos no programa: <span>R$ 18.445</span></p>

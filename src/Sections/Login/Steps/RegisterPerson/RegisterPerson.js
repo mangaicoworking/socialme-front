@@ -94,11 +94,12 @@ useEffect(() => {
         profissao: person.profession,
         email: person.email,
         //Nascimento
-        dataNascimento: person.birth.date,
-        paisNascimento: person.birth.country,
-        estadoNascimento: person.birth.state,
-        cidadeNascimento: person.birth.city,
+        //dataNascimento: person.birth.date,
+        //paisNascimento: person.birth.country,
+        //estadoNascimento: person.birth.state,
+        //cidadeNascimento: person.birth.city,
       });
+      
     }
   }, []);
 //LER ARQUIVO COM ESTADOS E CIDADES

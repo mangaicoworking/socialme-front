@@ -24,12 +24,12 @@ export default function PainelGestoraServicos() {
         ordem:"asc"
       }
     };
-    api.post(`/servicos/${values.userId}`, obj)
+    api.post(`/services`, obj)
     .then(res => {
       console.log(res.data);
       setValues({ 
         ...values, 
-        servicos: res.data.servicos,
+        servicos: res.data.data.ServicesList,
         consultouAPI: true
       });
     })
@@ -53,15 +53,15 @@ export default function PainelGestoraServicos() {
           values.servicos.map((item, index) => 
           <tr key={index}>
             <td className="tdContainerImagem">
-              <img src={`/assets/icones/servicos/${item.imagem.url}.svg`} alt={item.imagem.descricao} />
+              <img src={item.photo} alt={'item.imagem.descricao'} />
             </td>
             <td>
-              <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.nome)}</p>
-              <span style={{fontSize: '8pt'}}>SPED: {item.sped}</span>
+              <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.name)}</p>
+              <span style={{fontSize: '8pt'}}>SPED: {item.codes[0].number}</span>
             </td> 
-            <td>R${item.valor}</td>
+            <td>R$00.00</td>
             <td>tags</td>
-            <td>{capitalizeFirstLetter(item.descricao)}</td>
+            <td>{capitalizeFirstLetter(item.description)}</td>
             <td>
                 <i className="fas fa-ellipsis-h"></i>
             </td>

@@ -4,7 +4,7 @@ export const DebugContext = createContext();
 
 const DebugContextProvider = (props) => {
     const [console] = useState({
-        AuthContext: false,
+        AuthContext: true,
         Dashboards: {
             Beneficiary:{
                 MyResgister:{

@@ -11,9 +11,11 @@ import Moment from 'react-moment';
 export default function ManagerDashboardProgramsProgramLinkBeneficiary({match}) {
     const [values, setValues] = useState({
         gestoraId: '5d93a0417e87f339288f189b',
-        nome: '',
-        cpf: '',
-        nascimento: '',
+        nome: 'FABIO VITOR DE OLIVEIRA NORONHA',
+        cpf: '11111111111',
+        nascimento: '1996-11-26',
+        nomeDaMae: '',
+        pessoasEncontradas: [],
         idDaPessoaEncontrada: '',
         nomeDaPessoaEncontrada: '',
         cpfDaPessoaEncontrada: '',
@@ -33,17 +35,30 @@ export default function ManagerDashboardProgramsProgramLinkBeneficiary({match}) 
 //CONSULTANDO ALGUÉM
     const procurarBeneficiario = () =>{
         const obj = {
-            dados : {
-                nome : values.nome,
-                cpf : values.cpf,
-                nascimento : {
-                    data: values.nascimento
-                }
-            }
+            name: values.name,
+            mainDocument: values.cpf,
+            birthDate: values.nascimento,
+            motherName: values.nomeDaMae
         };
-        api.post(`pessoa/pesquisar`,obj)
+        api.post(`person/search`,obj)
         .then(res => {
             console.log(res.data)
+            if(res.data.data.PeopleList.length === 0){
+                setValues({ 
+                    ...values,
+                    encontrouAlguem: false,
+                    erroNaBusca: false,
+                })
+            }else if(res.data.data.PeopleList.length > 0){
+                console.log(res.data.data.PeopleList)
+                setValues({ 
+                    ...values,
+                    encontrouAlguem: true,
+                    erroNaBusca: false,
+                    pessoasEncontradas: res.data.data.PeopleList
+                })
+            }
+            /*
         switch (res.data.meta.codigo) {
             default:
             return(
@@ -74,9 +89,10 @@ export default function ManagerDashboardProgramsProgramLinkBeneficiary({match}) 
                 })
             );
         }
+        */
         })
         .catch(function (error) {
-        console.log(error);
+        //console.log(error);
         })
     }
 //CANCELANDO
@@ -92,28 +108,22 @@ export default function ManagerDashboardProgramsProgramLinkBeneficiary({match}) 
         })
     }
 //VINCULADO BENEFICIÁRIO
-const vincularBeneficiario = () =>{
+const vincularBeneficiario = (idDaPessoa) =>{
     const obj = {
-        _idPessoa: values.idDaPessoaEncontrada,
-        _idPrograma: match.params.idDoPrograma,
-        _idSolicitante: values.gestoraId
+        personId: idDaPessoa,
+        programId: match.params.idDoPrograma
     };
     console.log(obj);
-    api.post(`programas/novoBeneficiario`,obj)
+    
+    api.post(`program/entrance`,obj)
     .then(res => {
     console.log(res.data)
-    switch (res.data.meta.verboso) {
+
+    
+    switch (res.data.header.code) {
         default:
-        return(
-            setValues({ 
-            ...values,
-            mostrarAlerta: false,
-            typeAlerta: 'danger',
-            positionAlert: 'top-right',
-            textAlert: 'Não foi possível víncular o Beneficiário'
-            })
-        );
-        case 'PROGRAMA > VINCULARPESSOAAPROGRAMA > SUCESSO':
+        return;
+        case '78E3F1120078EFC':
         return(
             setValues({ 
             ...values,
@@ -130,10 +140,12 @@ const vincularBeneficiario = () =>{
             })
         );
     }
+    
     })
     .catch(function (error) {
     console.log(error);
     })
+    
 }
 //FEEDBACK DA BUSCA
 const feedbackDaBusca = () => {
@@ -141,6 +153,7 @@ const feedbackDaBusca = () => {
         return(
             <div className="managerDashboardProgramsProgramLinkBeneficiary-cardFoundGeneralContainer">
                 <div className="managerDashboardProgramsProgramLinkBeneficiary-cardFoundSuccess">
+                    {/* 
                     <img src={`/assets/icones/outros/user.svg`} alt="Foto da Pessoa" />
                     <p>{values.nomeDaPessoaEncontrada}</p>
                     <span>{values.cpfDaPessoaEncontrada}</span><br/>
@@ -149,6 +162,27 @@ const feedbackDaBusca = () => {
                         <button onClick={() => cancelandoBusca()} className="btn btn-3d btn-3d-secondary">Cancelar</button>
                         <button onClick={() => vincularBeneficiario()} className="btn btn-3d btn-3d-primary">Víncular ao Programa</button>
                     </div>
+                    */}
+                    <ul>
+
+                        {values.pessoasEncontradas.map((item,index) => 
+                            <li key={index} className="managerDashboardProgramsProgramLinkBeneficiary-cardFoundSuccess-li">
+                                <div className="containerImage">
+                                    <img src={item.profile.photo} alt="Foto da Pessoa" />
+                                </div>
+                                <div style={{ paddingTop: '10px', width: '360px' }}>
+                                    <p>{item.profile.name}</p>
+                                    <span>{item.profile.mainDocument.number}</span>
+                                </div>
+                                <div>
+                                <button onClick={() => vincularBeneficiario(item._id)}  className="btn btn-3d btn-3d-primary">Víncular</button>
+                                </div>
+                            </li>  
+                        )}
+
+                        
+                    </ul>
+                    <button onClick={() => cancelandoBusca()} className="btn btn-3d btn-3d-secondary buttonCancelar">Cancelar Consulta</button>
                 </div>
             </div>
         )
@@ -206,6 +240,16 @@ const feedbackDaBusca = () => {
                             placeholder="Ex: 00/00/0000"
                             value={values.nascimento}
                             onChange={handleChange('nascimento')}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Nome da mãe</label>
+                            <input 
+                            type="text" 
+                            className="form-control input-text" 
+                            placeholder="Ex: Goreth da Silva"
+                            value={values.nomeDaMae}
+                            onChange={handleChange('nomeDaMae')}
                             />
                         </div>
                         <button onClick={() => procurarBeneficiario()} className="btn btn-3d btn-3d-primary">Procurar</button>

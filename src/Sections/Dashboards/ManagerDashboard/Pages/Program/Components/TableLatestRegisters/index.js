@@ -12,15 +12,14 @@ export default function ManagerDashboardProgramTableLatestRegisters(props) {
 //PEGA DADOS DA PESSOA DA API
   useEffect(() => {
     const obj = {
-      quantidade : 25,
-      pagina: 1,
+      programId: props.idDoPrograma
     };
-    api.post(`programas/beneficiarios/${props.idDoPrograma}`, obj)
+    api.post(`program/people`, obj)
     .then(res => {
-      console.log(res.data);
+      console.log('program/peolpe -> ', res.data);
       setValues({ 
         ...values, 
-        beneficiariosDoPrograma: res.data.rel,
+        beneficiariosDoPrograma: res.data.data.ProgramPeopleList,
         consultouAPI: true 
       });
     })
@@ -41,17 +40,38 @@ export default function ManagerDashboardProgramTableLatestRegisters(props) {
           values.beneficiariosDoPrograma.map((item, index) => 
           <tr key={index}>
             <td className="tdContainerImagem">
-              <img src={`/assets/icones/outros/user.svg`} alt={'Foto do Usuário'} />
+              <img src={item.person.person.profile.photo} alt={'Foto do Usuário'} />
             </td>
             <td>
-              <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.nome)}</p>
+              <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.person.person.profile.name)}</p>
             </td> 
             <td>
-              {item.status ?
+
+              {item.institution.approvalStatus && item.person.approvalStatus === false ?
+                <p>(Pendente)</p>
+              :
+                <></>
+              }
+
+              {item.institution.approvalStatus && item.person.approvalStatus ?
                 <Moment format="DD/MM/YYYY">{item.dataDeIngresso}</Moment>
               :
-                <p>(Pendente)</p>
+                <></>
               }
+
+              {item.institution.approvalStatus === false && item.person.approvalStatus ?
+                <div className="tabelaAceitarOuRejeitarSolicitacoes">
+                  <button onClick={() => rejeitarSolicitacao(item.person.person._id)} className="btn btn-3d btn-3d-secondary recusar">
+                    <i className="fas fa-times"></i>
+                  </button>
+                  <button onClick={() => aceitarSolicitacao(item.person.person._id)} className="btn btn-3d btn-3d-primary aceitar">
+                    <i className="fas fa-check"></i>
+                  </button>
+                </div> 
+              :
+                <></>
+              }
+              
             </td>
               
           </tr>
@@ -59,6 +79,47 @@ export default function ManagerDashboardProgramTableLatestRegisters(props) {
       )
     }
   }
+  const aceitarSolicitacao = (idDaPessoa) => {
+    console.log('ACEITOU A SOLICITAÇÃO')
+    const obj = {
+        personId: idDaPessoa,
+        programId: props.idDoPrograma
+    };
+    console.log(obj);
+    api.post(`program/entrance/confirm`,obj)
+    .then(res => {
+        console.log(res.data)
+        switch(res.data.header.code){
+            case '78E3F6325509C44':
+                return (
+                    console.log('VAI'),
+                    props.vaiPokebola()
+                ) 
+            default:
+                return;
+        }
+    })
+    .catch(function (error) {
+    console.log(error);
+    })
+}
+const rejeitarSolicitacao = (idDaPessoa) => {
+    console.log('REJEITOU A SOLICITAÇÃO')
+    const obj = {
+        personId: idDaPessoa,
+        programId: props.idDoPrograma
+    };
+    console.log(obj);
+    
+    api.post(`program/entrance/reject`,obj)
+    .then(res => {
+        console.log(res.data)
+        props.vaiPokebola()
+    })
+    .catch(function (error) {
+    console.log(error);
+    })
+}
   return (
     <>
       <div className="managerDashboardProgramTableLatestRegisters-generalContainer">

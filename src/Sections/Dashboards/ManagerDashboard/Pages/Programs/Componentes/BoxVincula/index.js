@@ -10,6 +10,7 @@ export default function PainelGestoraProgramasBoxVincula(props) {
         nome: '',
         cpf: '',
         nascimento: '',
+        nomeMae: '',
         encontrouAlguem: false,
         nomeEncontrado: '',
         idEncontrado: '',
@@ -93,6 +94,18 @@ const renderizaSeEncontrouAlguem = () => {
                         placeholder="Nascimento"
                         value={values.nascimento}
                         onChange={handleChange('nascimento')}
+                    />
+                    </div>
+                </div>
+                <div className="col-sm-12 col-md-12 col-lg-12">
+                    <div className="form-group">
+                    <label className="form-label">Nome da Mãe</label>
+                    <input 
+                        type="text" 
+                        className="form-control input-text" 
+                        placeholder="Nome da Mãe"
+                        value={values.nomeMae}
+                        onChange={handleChange('nomeMae')}
                     />
                     </div>
                 </div>

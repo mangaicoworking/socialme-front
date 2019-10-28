@@ -31,13 +31,11 @@ export default function PainelGestoraProgramas({routes, match}) {
     api.post(`/programs`, obj)
     .then(res => {
       console.log(res.data)
-      if(res.data.meta.codigo === '0004002001'){
-        setValues({ 
-          ...values, 
-          programas: res.data.programas,
-          consultouAPI: true
-        });
-      }
+      setValues({ 
+        ...values, 
+        programas: res.data.data.ProgramsList,
+        consultouAPI: true
+      });
     })
     .catch(function (error) {
         console.log(error);

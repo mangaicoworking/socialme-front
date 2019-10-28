@@ -29,7 +29,7 @@ const login = () => {
     // PERSON SUCCESS > ABF54E009A77B0C
     // INSTITUTION SUCCESS > ABF54E009A78B0C
     .then(res => {
-        //console.log(res);
+        console.log(res);
         let token = res.data.data['mundo-data-token'];
         switch(res.data.header.code){
             case 'ABF54E009A77B0C':
@@ -50,7 +50,9 @@ const login = () => {
 }
 
 const redirect = () => {
+    console.log('redirect')
     if(values.redirect){
+        console.log('redirect true')
         if(values.dashboards.beneficiary){
             return(
                 <Redirect to="/me/painel-da-beneficiaria/minha-conta" />
@@ -85,7 +87,7 @@ const redirect = () => {
                     disabled
                     data-aos="fade-up"
                     type="text" 
-                    className="form-control input-text" 
+                    className="form-control input-text"
                     value={props.login}
                     />
                 </div>

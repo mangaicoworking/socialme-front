@@ -5,3 +5,15 @@
     width: 30px;
     height: 30px;
 }
+.tabelaAceitarOuRejeitarSolicitacoes .recusar i{
+    color: var(--textDark);
+}
+.tabelaAceitarOuRejeitarSolicitacoes .recusar:hover i{
+    color: var(--danger);
+}
+.tabelaAceitarOuRejeitarSolicitacoes .aceitar i{
+    color: var(--white);
+}
+.tabelaAceitarOuRejeitarSolicitacoes .aceitar:hover i{
+    color: var(--success);
+}

@@ -49,7 +49,7 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
     const obj = {
       personId: person._id 
     };
-    api.post(`person/programs`,obj)
+    api.post(`programs/person`,obj)
     .then(res => {
         console.log(res.data)
         setValues({ 

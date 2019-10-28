@@ -13,6 +13,8 @@ export default function ManagerDashboarProgramsAdd() {
     nome: '',
     descricao: '',
     imagem: '',
+    //
+    redirect: false,
     //Alerta
     mostrarAlerta: false,
     typeAlerta: 'success',
@@ -41,23 +43,18 @@ const adicionarNovoPrograma = () =>{
   console.log(obj)
   api.post(`program/new`, obj)
       .then(res => {
-      console.log(res.data);
-      switch (res.data.meta.codigo) {
-          case '0004001001':
-          default:
-            return(
-              setValues({ 
-                  ...values, 
-                  nome: '',
-                  descricao: '',
-                  imagem: '',
-                  mostrarAlerta: true,
-                  typeAlerta: 'success',
-                  positionAlert: 'top-right',
-                  textAlert: 'Programa criado com sucesso.'
-              })
-          );
-        }
+        console.log(res.data);
+        setValues({ 
+          ...values, 
+          nome: '',
+          descricao: '',
+          imagem: '',
+          mostrarAlerta: true,
+          redirect: true,
+          typeAlerta: 'success',
+          positionAlert: 'top-right',
+          textAlert: 'Programa criado com sucesso.'
+        })
       })
       .catch(function (error) {
       console.log(error);
@@ -69,12 +66,19 @@ const renderAlerta = () => {
   return <Alert type={values.typeAlerta} position={values.positionAlert} text={values.textAlert} />
   }
 }
+//RENDERIZAR ALERTA
+const renderRedirect = () => {
+  if (values.redirect) {
+  return <Redirect to="/me/painel-da-gestora/programas" />
+  }
+}
   return (
     <>
+      {renderRedirect()}
       {renderAlerta()}
       <div className="painelGestoraProgramasAdicionar-containerGeral">
         <Link to={"/me/painel-da-gestora/programas"}>
-          <button>Voltar</button>
+          <button className="btn btn-3d btn-3d-primary">Voltar</button>
         </Link>
           <div className="row">
             <div className="col-sm-12 col-md-4 col-lg-4">

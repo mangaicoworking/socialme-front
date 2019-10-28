@@ -24,12 +24,12 @@ export default function PainelGestoraProdutos() {
         ordem:"asc"
       }
     };
-    api.post(`/produtos/${values.userId}`, obj)
+    api.post(`/products`, obj)
     .then(res => {
       console.log(res.data);
       setValues({ 
         ...values, 
-        produtos: res.data.produtos,
+        produtos: res.data.data.ProductsList,
         consultouAPI: true
       });
     })
@@ -53,15 +53,15 @@ export default function PainelGestoraProdutos() {
           values.produtos.map((item, index) => 
           <tr key={index}>
             <td className="tdContainerImagem">
-              <img src={`/assets/icones/produtos/${item.imagem.url}.svg`} alt={item.imagem.descricao} />
+              <img src={item.photo} alt="Descrição" />
             </td>
             <td>
-              <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.nome)}</p>
-              <span style={{fontSize: '8pt'}}>NCM: {item.ncm}</span>
+              <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.name)}</p>
+              <span style={{fontSize: '8pt'}}>NCM: {item.codes[0].number}</span>
             </td> 
-            <td>R${item.valor}</td>
+            <td>R$00,00</td>
             <td>tags</td>
-            <td>{capitalizeFirstLetter(item.descricao)}</td>
+            <td>Descrição</td>
             <td>
                 <i className="fas fa-ellipsis-h"></i>
             </td>
