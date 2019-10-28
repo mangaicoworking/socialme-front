@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import './style.css';
 import FilterRow from './Componentes/FilterRow';
 import ContainerCards from './Componentes/ContainerCards';
 import api from './../../../../../Services/api';
+//import { APIContext } from './../../../../../Contexts/APIContext';
 import { MakeRouteWithSubRoutes } from '../../../../../makeRouteWithSubRoutes';
 
 /*
@@ -13,6 +14,8 @@ console.log('protocol -> '+ window.location.protocol);
 */
 
 export default function PainelGestoraProgramas({routes, match}) {
+  //const { api } = useContext(APIContext);
+  console.log(api)
   const [values, setValues] = useState({
     gestoraId: '5d93a0417e87f339288f189b',
     programas: [],

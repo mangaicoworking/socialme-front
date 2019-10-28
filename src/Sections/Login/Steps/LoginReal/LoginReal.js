@@ -50,7 +50,7 @@ const login = () => {
 }
 
 const redirect = () => {
-    console.log('redirect')
+    //console.log('redirect')
     if(values.redirect){
         console.log('redirect true')
         if(values.dashboards.beneficiary){

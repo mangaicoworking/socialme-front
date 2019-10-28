@@ -56,6 +56,11 @@ export default function ManagerDashboardProgram({routes, match}) {
   }, []);
 
   const vaiPokebola = () => {
+    console.log('POKEBOLA')
+    setValues({
+      programa: {},
+      consultouAPI: false
+    })
     const obj = {
       quantidade :"25",
       pagina: "1",

@@ -27,7 +27,7 @@ const AuthContextProvider = (props) => {
             .then(res => {
                 if(DebugConsole)console.log('API answer for /checkToken -> ', res);
                 switch(res.data.header.code){
-                    case 'ABF5400000AF71E':
+                    case 'ABF54E014AAF71E':
                         if(res.data.data.person){
                             setPerson(res.data.data.person);
                             setIsAuth(true);
@@ -79,6 +79,8 @@ const AuthContextProvider = (props) => {
     }
 
     const logout = () => {
+        //document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+        setToken(null);
         setPerson(null);
         setInstitution(null);
         setIsAuth(false);

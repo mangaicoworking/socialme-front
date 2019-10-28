@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import api from './../../../../../../../../../Services/api';
+import { AuthContext } from './../../../../../../../../../Contexts/AuthContext';
 
 const UnicaLinhaDoProgramaQuePossoParticipar = (props) => {
+    const { person, institution } = useContext(AuthContext)
     const [solicitou, setSolicitou] = useState(false);
 
     const solicitarEntrada = () => {
+        /*
+        console.log('PERSON ID N -> ' + person._id)
+        console.log('PERSON ID A -> ' + props.personId)
+        console.log('PROGRAMA ID -> ' + props.program._id)
+       */
         const obj = {
             personId: props.personId,
             programId: props.program._id
         };
-        console.log(obj);
-        
+        console.log('OBJ -> ', obj);
+         
         api.post(`program/entrance`,obj)
         .then(res => {
             console.log(res.data)
             setSolicitou(true)
         })
+        
     }
     return ( 
         <li className="beneficiaryDashboardMyAccountMyPrograms-li">
@@ -34,7 +42,7 @@ const UnicaLinhaDoProgramaQuePossoParticipar = (props) => {
                     {solicitou ?
                         <p>Aguarde a resposta do programa</p>
                     :
-<button onClick={() => solicitarEntrada()} className="btn btn-3d btn-3d-primary">Solicitar</button>   
+                        <button onClick={() => solicitarEntrada()} className="btn btn-3d btn-3d-primary">Solicitar</button>   
                     }
                 </div>
             </div>
