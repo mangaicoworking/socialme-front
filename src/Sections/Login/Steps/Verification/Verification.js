@@ -54,6 +54,7 @@ useEffect(() => {
 }, [mainDocument]);
 //VERIFICA A SITUAÇÃO
     const verificacao = () => {
+        console.log('VERIFICAÇÃO')
         const obj = {
             login: mainDocument.value.replace(/[^\d]+/g,'')
         }
@@ -68,11 +69,18 @@ useEffect(() => {
             // Encontrou Instituição, sem senha: ABF54A98CDE1988
             // Encontrou Instituição, com senha: ABF54A98CD74AAA
             switch(res.data.header.code.toUpperCase()){
-                // PESSOA: Não encontrou
-                case 'ABF54A98CD1A6ED':
-                    return(
-                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
-                    )
+                // PESSOA ou Instituição: Não encontrou
+                case 'ABF54A98CD74AEA':
+                    let mainDocumentPure = mainDocument.value.replace(/[^\d]+/g,'')
+                    if(mainDocumentPure.length === 11){
+                        return(
+                            props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                        )
+                    }else{
+                        return(
+                            props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                        )
+                    }   
                 // PESSOA: Encontrou, sem senha
                 case 'ABF54A98CDE1987':
                     return(
@@ -82,11 +90,6 @@ useEffect(() => {
                 case 'ABF54A98CDE14AA':
                     return (
                         props.verificationResponse(res.data.header.code, mainDocument.value, res.data.data.person)
-                    )
-                // INSTITUIÇÃO: Não encontrou
-                case 'ABF54A98CD74238':
-                    return(
-                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
                     )
                 // INSTITUIÇÃO: Encontrou, com senha
                 case 'ABF54A98CD74AAA':

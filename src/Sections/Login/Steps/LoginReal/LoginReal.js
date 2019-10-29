@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Redirect } from 'react-router-dom';
 import './LoginReal.css';
 import api from './../../../../Services/api';
@@ -79,13 +79,22 @@ const redirect = () => {
         
     }
 }
+useEffect(() => {
+    if (props && props.data && props.data.profile && props.data.profile.name){
+        setValues({ name : props.data.profile.name})
+    }else if(props && props.data && props.data.profile && props.data.profile.fantasyName){
+        setValues({ name : props.data.profile.fantasyName})
+    }else{
+        setValues({ name : ''})
+    }
+}, []);
     return ( 
         <>
             {redirect()}
             <div className="Login-LoginReal-GeneralContainer">
 
                 <div>
-                    <p>Olá {props.data.profile.name ? props.data.profile.name : props.data.profile.fantasyName}</p>
+                    <p>Olá, {values.name === '' ? 'coloque sua senha abaixo para acessar o Social Me' : ''} {values.name}</p>
                     <br/>
                 </div>
       

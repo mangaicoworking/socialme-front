@@ -66,10 +66,17 @@ const changeLogin = (login) => {
         //console.log('MAINDOCUMENT -> '+mainDocument);
         switch(message.toUpperCase()){
             // PESSOA: Não encontrou
-            case 'ABF54A98CD1A6ED':
-                return(
-                    setValues({ ...values, stepVerification: false, stepRegisterPerson: true, stepLogin: false })
-                )
+            case 'ABF54A98CD74AEA':
+                let mainDocumentPure = mainDocument.replace(/[^\d]+/g,'')
+                if(mainDocumentPure.length === 11){
+                    return(
+                        setValues({ ...values, stepVerification: false, stepRegisterPerson: true, stepLogin: false })
+                    )
+                }else{
+                    return(
+                        setValues({ ...values, stepVerification: false, stepRegisterInstitution: true, stepLogin: false })
+                    )
+                }  
             // PESSOA: Encontrou, sem senha
             case 'ABF54A98CDE1987':
                 return(
@@ -79,11 +86,6 @@ const changeLogin = (login) => {
             case 'ABF54A98CDE14AA':
                 return (
                     setValues({ ...values, stepVerification: false, stepRegisterPerson: false, stepLogin: true, stepVeriticationRegisterData: data  })
-                )
-            // INSTITUIÇÃO: Não encontrou
-            case 'ABF54A98CD74238':
-                return(
-                    setValues({ ...values, stepVerification: false, stepRegisterInstitution: true, stepLogin: false })
                 )
             // INSTITUIÇÃO: Encontrou, com senha
             case 'ABF54A98CD74AAA':

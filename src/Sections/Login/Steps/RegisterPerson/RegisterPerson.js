@@ -196,6 +196,7 @@ useEffect(() => {
   }
   const cadastrarBeneficiario = (e) => {
     e.preventDefault();
+    console.log('CADASTRANDO')
     const obj = {
       profile: {
         name: values.nome,
