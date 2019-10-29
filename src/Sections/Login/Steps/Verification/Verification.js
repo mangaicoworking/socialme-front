@@ -81,7 +81,7 @@ useEffect(() => {
                 // PESSOA: Encontrou, com senha
                 case 'ABF54A98CDE14AA':
                     return (
-                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                        props.verificationResponse(res.data.header.code, mainDocument.value, res.data.data.person)
                     )
                 // INSTITUIÇÃO: Não encontrou
                 case 'ABF54A98CD74238':

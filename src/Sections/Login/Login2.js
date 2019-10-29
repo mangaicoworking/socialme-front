@@ -46,7 +46,7 @@ const Login = () => {
             )
         }else if(values.stepLogin){
             return(
-                <LoginReal login={values.login} />
+                <LoginReal stepBack={stepBack.bind(this)}  login={values.login} data={values.stepVeriticationRegisterData} />
             )
         }
     }
@@ -78,7 +78,7 @@ const changeLogin = (login) => {
             // PESSOA: Encontrou, com senha
             case 'ABF54A98CDE14AA':
                 return (
-                    setValues({ ...values, stepVerification: false, stepRegisterPerson: false, stepLogin: true })
+                    setValues({ ...values, stepVerification: false, stepRegisterPerson: false, stepLogin: true, stepVeriticationRegisterData: data  })
                 )
             // INSTITUIÇÃO: Não encontrou
             case 'ABF54A98CD74238':
@@ -88,7 +88,7 @@ const changeLogin = (login) => {
             // INSTITUIÇÃO: Encontrou, com senha
             case 'ABF54A98CD74AAA':
                 return (
-                    setValues({ ...values, stepVerification: false, stepRegisterPerson: false, stepRegisterInstitution: false, stepLogin: true })
+                    setValues({ ...values, stepVerification: false, stepRegisterPerson: false, stepRegisterInstitution: false, stepLogin: true, stepVeriticationRegisterData: data  })
                 )
             default:
                 return;

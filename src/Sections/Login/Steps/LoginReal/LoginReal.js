@@ -6,6 +6,7 @@ import { DebugContext } from './../../../../Contexts/DebugContext';
 import { AuthContext } from './../../../../Contexts/AuthContext';
 
 const LoginReal = (props) => {
+    console.log(props)
     const { DebugConsole } = useContext(DebugContext);
     const { populateAuth } = useContext(AuthContext);
 
@@ -81,6 +82,11 @@ const redirect = () => {
         <>
             {redirect()}
             <div className="Login-LoginReal-GeneralContainer">
+
+                <div>
+                    <p>Olá {props.data.profile.name}</p>
+                    <br/>
+                </div>
       
                 <div className="form-group">
                     <input
