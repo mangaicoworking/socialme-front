@@ -4,6 +4,8 @@ import './style.css';
 import TableResponsive from './../../../../../../../Components/TabelaResponsiva';
 import api from './../../../../../../../Services/api';
 
+// 
+
 export default function ManagerDashboardProgramTableLatestRegisters(props) {
   const [values, setValues] = useState({
     beneficiariosDoPrograma: [],
@@ -27,10 +29,6 @@ export default function ManagerDashboardProgramTableLatestRegisters(props) {
         console.log(error);
     })
   },[]);
-//CAPITALIZE
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-  }
   const valoresParaPreencherHeadDaTabela = [
     "", "Nome", "Data"
   ]
@@ -39,11 +37,11 @@ export default function ManagerDashboardProgramTableLatestRegisters(props) {
       return(
           values.beneficiariosDoPrograma.map((item, index) => 
           <tr key={index}>
-            <td className="tdContainerImagem">
+            <td className="tdContainerImagem" style={{ backgroundImage : `url`}}>
               <img src={item.person.person.profile.photo} alt={'Foto do Usuário'} />
             </td>
             <td>
-              <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.person.person.profile.name)}</p>
+              <p style={{color: 'var(--primary)'}}>{item.person.person.profile.name}</p>
             </td> 
             <td>
 
