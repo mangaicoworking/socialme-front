@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Routes } from './routes'; // where we are going to specify our routes
 import './App.css';
 
-import APIContextProvider from './Contexts/APIContext';
+//import APIContextProvider from './Contexts/APIContext';
 import DebugContextProvider from './Contexts/DebugContext';
 import ThemeContextProvider from './Contexts/ThemeContext';
 import LanguageContextProvider from './Contexts/LanguageContext';
@@ -27,7 +27,7 @@ export default function AppWeb( ) {
   return (
     <>
       <Router>
-      <APIContextProvider>
+      
           <DebugContextProvider>
             <AuthContextProvider>
               <ThemeContextProvider>
@@ -37,7 +37,7 @@ export default function AppWeb( ) {
               </ThemeContextProvider>
             </AuthContextProvider>
           </DebugContextProvider>
-        </APIContextProvider>
+     
       </Router>
     </>
   );
