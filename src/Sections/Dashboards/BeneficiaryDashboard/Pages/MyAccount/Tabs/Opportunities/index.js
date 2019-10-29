@@ -17,7 +17,7 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
     if(person !== undefined){
       listarProgramas()
     }
-  }, []);
+  }, [person]);
   const vaiPokebola = () => {
     listarProgramas()
   }

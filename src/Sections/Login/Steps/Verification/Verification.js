@@ -59,7 +59,7 @@ useEffect(() => {
         }
         api.post('/prelogin', obj)
         .then(res => {
-            //console.log(res);
+            console.log(res);
             if(DebugConsole)console.log('Query API on route -> /prelogin ', res );
             // Não Encontrou Pessoa: ABF54A98CD1A6ED
             // Encontrou Pessoa, mas sem senha: ABF54A98CDE1987
@@ -91,7 +91,7 @@ useEffect(() => {
                 // INSTITUIÇÃO: Encontrou, com senha
                 case 'ABF54A98CD74AAA':
                     return (
-                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                        props.verificationResponse(res.data.header.code, mainDocument.value, res.data.data.institution)
                     )
                 default:
                     return;

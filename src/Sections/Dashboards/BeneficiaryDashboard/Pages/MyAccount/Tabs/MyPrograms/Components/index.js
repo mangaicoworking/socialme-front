@@ -3,7 +3,6 @@ import './style.css';
 import OnlyLine from './Components/OnlyLine';
 import api from './../../../../../../../Services/api';
 import { AuthContext } from './../../../../../../../Contexts/AuthContext';
-import { isMetaProperty } from "@babel/types";
 
 const dataFake = [
   {
@@ -37,6 +36,11 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
   useEffect(() => {
     if(person !== undefined){
       listarProgramas()
+    }else{
+      setTimeout(
+        console.log('TESTE'),
+        1000
+      );
     }
   }, []);
   const vaiPokebola = () => {
@@ -128,7 +132,7 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
                   :
                   <OnlyLine 
                   key={item.program._id} 
-                  nomeInstituicao={item.institution.institution.profile.fantasyName} 
+                  nomeInstituicao={'Nome da Instituição'} 
                   personId={person._id} item={item.program} 
                   status={'Pendente'} 
                   vaiPokebola = {vaiPokebola}
@@ -150,7 +154,7 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
                   :
                   <OnlyLine 
                   key={item.program._id} 
-                  nomeInstituicao={item.institution.institution.profile.fantasyName} 
+                  nomeInstituicao={'Nome da Instituição'} 
                   personId={person._id} item={item.program} 
                   status={'ComSolicitacoesPendentes'}
                   vaiPokebola = {vaiPokebola}
@@ -170,7 +174,7 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
                 (item.institution.approvalStatus && item.person.approvalStatus ?
                   <OnlyLine 
                   key={item.program._id} 
-                  nomeInstituicao={item.institution.institution.profile.fantasyName} 
+                  nomeInstituicao={'Nome da Instituição'} 
                   personId={person._id} item={item.program} 
                   status={'Dentro'} 
                   vaiPokebola = {vaiPokebola}

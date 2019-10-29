@@ -38,7 +38,7 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
     if(person !== undefined){
       listarProgramas()
     }
-  }, []);
+  }, [person]);
   const vaiPokebola = () => {
     console.log('POKEBOLA')
     listarProgramas()
@@ -127,8 +127,8 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
                   <></>
                   :
                   <OnlyLine 
-                  key={item.program._id} 
-                  nomeInstituicao={item.institution.institution.profile.fantasyName} 
+                  key={`${index}1`} 
+                  nomeInstituicao={'Instituição'} 
                   personId={person._id} item={item.program} 
                   status={'Pendente'} 
                   vaiPokebola = {vaiPokebola}
@@ -149,8 +149,8 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
                   <></>
                   :
                   <OnlyLine 
-                  key={item.program._id} 
-                  nomeInstituicao={item.institution.institution.profile.fantasyName} 
+                  key={`${index}2`} 
+                  nomeInstituicao={'Instituição'} 
                   personId={person._id} item={item.program} 
                   status={'ComSolicitacoesPendentes'}
                   vaiPokebola = {vaiPokebola}
@@ -169,8 +169,8 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
               values.programas.map((item, index) => 
                 (item.institution.approvalStatus && item.person.approvalStatus ?
                   <OnlyLine 
-                  key={item.program._id} 
-                  nomeInstituicao={item.institution.institution.profile.fantasyName} 
+                  key={`${index}3`} 
+                  nomeInstituicao={'Instituição'} 
                   personId={person._id} item={item.program} 
                   status={'Dentro'} 
                   vaiPokebola = {vaiPokebola}

@@ -46,7 +46,7 @@ const Login = () => {
             )
         }else if(values.stepLogin){
             return(
-                <LoginReal stepBack={stepBack.bind(this)}  login={values.login} data={values.stepVeriticationRegisterData} />
+                <LoginReal stepBack={stepBack.bind(this)} login={values.login} data={values.stepVeriticationRegisterData} />
             )
         }
     }

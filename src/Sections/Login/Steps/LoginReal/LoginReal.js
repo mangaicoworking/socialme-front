@@ -13,7 +13,8 @@ const LoginReal = (props) => {
     const [values, setValues] = useState({
         password: '',
         redirect: false,
-        dashboards: []
+        dashboards: [],
+        name: ''
     });
 
 //HANDLE CHANGE
@@ -84,7 +85,7 @@ const redirect = () => {
             <div className="Login-LoginReal-GeneralContainer">
 
                 <div>
-                    <p>Olá {props.data.profile.name}</p>
+                    <p>Olá {props.data.profile.name ? props.data.profile.name : props.data.profile.fantasyName}</p>
                     <br/>
                 </div>
       
