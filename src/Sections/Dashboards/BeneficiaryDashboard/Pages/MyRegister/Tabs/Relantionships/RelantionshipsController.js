@@ -1,4 +1,5 @@
 import api from './../../../../../../../Services/api';
+import axios from 'axios';
 
 let DebugConsole = true;
 
@@ -14,7 +15,21 @@ const RelantionshipsController = {
                   order:"asc"
                 }
             };
-            api.post(`relationships`, obj)
+            //api.post(`relationships`, obj)
+            axios({
+              baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+              headers: {'mundo-data-token': localStorage.getItem('token')},
+              method: 'post',
+              url: 'relationships',
+              data: {
+                limit :"25",
+                page: "1",
+                sort: {
+                  by:"valor",
+                  order:"asc"
+                }
+              }
+            })
             .then(res => {
                 if(DebugConsole)console.log("Chegou");
                 callback(res.data);

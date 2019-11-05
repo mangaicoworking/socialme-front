@@ -1,57 +1,76 @@
 import React, { useState, useContext } from 'react';
 import './style.css';
-import FlagPortugal from './../../Assets/Flags/pt.svg';
-import FlagBrazil from './../../Assets/Flags/br.svg';
+import USAFlag from './../../Assets/Flags/us.svg';
+import BrazilFlag from './../../Assets/Flags/br.svg';
+import PernambucoFlag from './../../Assets/Flags/Pernambuco.svg';
 import { LanguageContext } from './../../Contexts/LanguageContext';
 
 export default function SelectLanguage(props) {
     const { changeLanguage } = useContext(LanguageContext);
+    const [open, setOpen] = useState(false);
     const [values, setValues] = useState({
-        open: false,
-        flag: FlagBrazil,
-        language: 'POR'
+        flag: BrazilFlag,
+        language: 'BRA'
       });
-    //HANDLE CHANGE
-    const handleChange = name => event => {
-        switch(name) {
-        case 'POR':
-        default:
-            return (
-                changeLanguage('POR'),
-                setValues({ ...values, flag: FlagBrazil, language: 'POR', open: false, })
-            );
-        case 'PPO':
-            return (
-                changeLanguage('PPO'),
-                setValues({ ...values, flag: FlagPortugal, language: 'PPO', open: false, })
-            )
+    const toggleLanguage = (newLanguage, newFlag) => {
+        return(
+            changeLanguage(newLanguage),
+            setValues({ ...values, flag: newFlag, language: newLanguage, open: false })
+        )
+    }
+    const languagesList = [
+        {
+            language : "BRA",
+            flag: BrazilFlag,
+            country: true
+        },
+        {
+            language : "PE",
+            flag: PernambucoFlag,
+            country: false
+        },
+        {
+            language : "USA",
+            flag: USAFlag,
+            country: true
         }
-    };
-    const toggleSelect = () => {
-        if(values.open){
-            setValues({ ...values, open: false });
-        }else{
-            setValues({ ...values, open: true });
+    ]
+    const toggleOpen = () => {
+        setOpen(!open);
+    }
+    const renderMenuDropdown = () => {
+        if(open){
+            return(
+                <div className="selectLanguageDropdown-dropdownMenu">
+                    <ul className="selectLanguageDropdown-dropdownMenu-ul">
+                        {languagesList.map((item, index) => (
+                            <li key={index} 
+                            className={"selectLanguageDropdown-dropdownMenu-li " + (values.language === item.language ? 'selectLanguageDropdown-dropdownMenu-active' : '')}
+                            onClick={() => toggleLanguage(item.language, item.flag)}
+                            style={{
+                                padding: (item.country ? '0px 5px' : '0px 5px 0px 20px')
+                            }}
+                            >
+                                <img className="selectLanguageDropdown-flag" src={item.flag} alt={`${item.language} flag`} />
+                                <span className="selectLanguageDropdown-span">{item.language}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )
         }
     }
     return (
         <>
-            <div className="select">
-                <img onClick={() => toggleSelect()} src={values.flag} alt="Bandeira do Brasil" />
-                <span onClick={() => toggleSelect()}>{values.language}</span>
-                <i onClick={() => toggleSelect()} className={"fas fa-chevron-down " + (values.open ? 'selectIconRotateUp' : 'selectIconRotateDown')}></i>
-                <div className={"box-select " + (values.open ? 'display-inline-block selectBoxOpen' : 'display-none')}>
-                    <ul className="box-select-ul">
-                        <li className="box-select-li" onClick={handleChange('POR')}>
-                            <img src={FlagBrazil} alt="Bandeira do Brasil" />
-                            POR
-                        </li>
-                        <li className="box-select-li" onClick={handleChange('PPO')}>
-                            <img src={FlagPortugal} alt="Bandeira do Brasil" />
-                            PPO
-                        </li>
-                    </ul>
+            <div onClick={toggleOpen} className="selectLanguageDropdown">
+                <div className="selectLanguageDropdown-container">
+                    <img className="selectLanguageDropdown-flag" src={values.flag} alt="Bandeira do Brasil" />
+                    <p className="selectLanguageDropdown-activeLanguage">{values.language}</p>
+                    <i className="selectLanguageDropdown-i fas fa-chevron-down"></i>
                 </div>
+                
+                {renderMenuDropdown()}
+
             </div>
         </>
     );

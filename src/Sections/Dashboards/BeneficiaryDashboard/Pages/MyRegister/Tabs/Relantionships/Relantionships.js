@@ -6,7 +6,7 @@ import ImageUser from './../../../../../../../Assets/Images/user.png';
 import ImageAdd from './../../../../../../../Assets/Images/add.png';
 import ImageCircle from './../../../../../../../Assets/Images/circle.png';
 import Alert from './../../../../../../../Components/Alert';
-import { async } from "q";
+import axios from 'axios';
 
 const DashboardBeneficiaryMyRegisterRelantionships = () => {
     const [values, setValues] = useState({
@@ -37,7 +37,16 @@ const DashboardBeneficiaryMyRegisterRelantionships = () => {
           const obj = {
             cpf: values.cpfDoNovoRelacionamento
           }
-          api.post(`person/searchByDocument`,obj)
+          //api.post(`person/searchByDocument`,obj)
+          axios({
+            baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+            headers: {'mundo-data-token': localStorage.getItem('token')},
+            method: 'post',
+            url: 'person/searchByDocument',
+            data: {
+              cpf: values.cpfDoNovoRelacionamento
+            }
+          })
           .then(res => {
             console.log(res);
             setValues({ 
@@ -94,7 +103,17 @@ const DashboardBeneficiaryMyRegisterRelantionships = () => {
           personId: values.idDaPessoaDoNovoRelacionamento,
           link: values.tipoDoNovoRelacionamento
         }
-        api.post(`relationship/new`,obj)
+        //api.post(`relationship/new`,obj)
+        axios({
+          baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+          headers: {'mundo-data-token': localStorage.getItem('token')},
+          method: 'post',
+          url: 'relationship/new',
+          data: {
+            personId: values.idDaPessoaDoNovoRelacionamento,
+            link: values.tipoDoNovoRelacionamento
+          }
+        })
         .then(res => {
           console.log(res.data);
           switch (res.data.codigo) {
@@ -150,7 +169,13 @@ const DashboardBeneficiaryMyRegisterRelantionships = () => {
         console.log('DELETANDO');
         setValues({ ...values, auxPegarDados: false });
         // REMOVEU COM SUCESS : "F1DE4ABACCFE158"
-        api.delete(`relationship/${idDaPessoa}`)
+        //api.delete(`relationship/${idDaPessoa}`)
+        axios({
+          baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+          headers: {'mundo-data-token': localStorage.getItem('token')},
+          method: 'delete',
+          url: `relationship/${idDaPessoa}`
+        })
         .then(res => {
           console.log(res.data);
           if(res.data.header.code === 'F1DE4ABACCFE158'){
@@ -176,7 +201,16 @@ const DashboardBeneficiaryMyRegisterRelantionships = () => {
         const obj = {
           vinculo: values.tipoDoRelacionamentoDaEdicao
         };
-        api.put(`atualizarRelacionamento/${values.userId}/${values.idDaRowEmEdicao}`,obj)
+        //api.put(`atualizarRelacionamento/${values.userId}/${values.idDaRowEmEdicao}`,obj)
+        axios({
+          baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+          headers: {'mundo-data-token': localStorage.getItem('token')},
+          method: 'put',
+          url: `atualizarRelacionamento/${values.userId}/${values.idDaRowEmEdicao}`,
+          data: {
+            vinculo: values.tipoDoRelacionamentoDaEdicao
+          }
+        })
         .then(res => {
           switch (res.data.codigo) {
             case 'CODIGOTUDOOK':

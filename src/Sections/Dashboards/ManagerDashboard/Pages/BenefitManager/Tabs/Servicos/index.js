@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from './../../../../../../../Services/api';
+import axios from 'axios';
 import TabelaResponsiva from './../../../../../../../Components/TabelaResponsiva';
 
 export default function PainelGestoraServicos() {
@@ -24,7 +25,21 @@ export default function PainelGestoraServicos() {
         ordem:"asc"
       }
     };
-    api.post(`/services`, obj)
+    //api.post(`/services`, obj)
+    axios({
+      baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+      headers: {'mundo-data-token': localStorage.getItem('token')},
+      method: 'post',
+      url: '/services',
+      data: {
+        quantidade :"25",
+        pagina: "1",
+        ordenar: {
+          por:"valor",
+          ordem:"asc"
+        }
+      }
+    })
     .then(res => {
       console.log(res.data);
       setValues({ 

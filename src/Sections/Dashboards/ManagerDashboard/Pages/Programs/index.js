@@ -3,6 +3,7 @@ import './style.css';
 import FilterRow from './Componentes/FilterRow';
 import ContainerCards from './Componentes/ContainerCards';
 import api from './../../../../../Services/api';
+import axios from 'axios';
 //import { APIContext } from './../../../../../Contexts/APIContext';
 import { MakeRouteWithSubRoutes } from '../../../../../makeRouteWithSubRoutes';
 
@@ -31,7 +32,21 @@ export default function PainelGestoraProgramas({routes, match}) {
         ordem:"asc"
       }
     };
-    api.post(`/programs`, obj)
+    //api.post(`/programs`, obj)
+    axios({
+      baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+      headers: {'mundo-data-token': localStorage.getItem('token')},
+      method: 'post',
+      url: '/programs',
+      data: {
+        quantidade :"25",
+        pagina: "1",
+        ordenar: {
+          por:"valor",
+          ordem:"asc"
+        }
+      }
+    })
     .then(res => {
       console.log(res.data)
       setValues({ 

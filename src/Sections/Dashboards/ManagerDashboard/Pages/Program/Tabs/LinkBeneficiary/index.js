@@ -3,6 +3,7 @@ import './style.css';
 import api from './../../../../../../../Services/api';
 import Alert from './../../../../../../../Components/Alert';
 import Moment from 'react-moment';
+import axios from 'axios';
 
 //NOME: ARTHUR GERONIMO
 //CPF: 33333333333
@@ -11,9 +12,9 @@ import Moment from 'react-moment';
 export default function ManagerDashboardProgramsProgramLinkBeneficiary({match}) {
     const [values, setValues] = useState({
         gestoraId: '5d93a0417e87f339288f189b',
-        nome: 'FABIO VITOR DE OLIVEIRA NORONHA',
-        cpf: '11111111111',
-        nascimento: '1996-11-26',
+        nome: '',
+        cpf: '',
+        nascimento: '',
         nomeDaMae: '',
         pessoasEncontradas: [],
         idDaPessoaEncontrada: '',
@@ -40,7 +41,19 @@ export default function ManagerDashboardProgramsProgramLinkBeneficiary({match}) 
             birthDate: values.nascimento,
             motherName: values.nomeDaMae
         };
-        api.post(`person/search`,obj)
+        //api.post(`person/search`,obj)
+        axios({
+            baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+            headers: {'mundo-data-token': localStorage.getItem('token')},
+            method: 'post',
+            url: '/person/search',
+            data: {
+                name: values.name,
+                mainDocument: values.cpf,
+                birthDate: values.nascimento,
+                motherName: values.nomeDaMae
+            }
+        })
         .then(res => {
             console.log(res.data)
             if(res.data.data.PeopleList.length === 0){
@@ -237,7 +250,7 @@ const feedbackDaBusca = () => {
                             <input 
                             type="text" 
                             className="form-control input-text" 
-                            placeholder="Ex: 00/00/0000"
+                            placeholder="Ex: 0000-00-00"
                             value={values.nascimento}
                             onChange={handleChange('nascimento')}
                             />

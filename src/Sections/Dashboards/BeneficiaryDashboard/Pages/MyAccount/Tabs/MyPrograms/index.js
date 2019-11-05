@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import './style.css';
 import OnlyLine from './Components/OnlyLine';
 import api from './../../../../../../../Services/api';
+import axios from 'axios';
 import { AuthContext } from './../../../../../../../Contexts/AuthContext';
 import { isMetaProperty } from "@babel/types";
 
@@ -49,7 +50,16 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
     const obj = {
       personId: person._id 
     };
-    api.post(`person/programs`,obj)
+    //api.post(`person/programs`,obj)
+    axios({
+      baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+      headers: {'mundo-data-token': localStorage.getItem('token')},
+      method: 'post',
+      url: 'person/programs',
+      data: {
+        personId: person._id
+      }
+    })
     .then(res => {
         console.log(res.data)
         setValues({ 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './style.css';
+import axios from 'axios';
 import ActionBox from './Components/ActionBox';
 import Informations from './Components/Informations';
 import TableLatestRegisters from './Components/TableLatestRegisters';
@@ -37,7 +38,21 @@ export default function ManagerDashboardProgram({routes, match}) {
         ordem:"asc"
       }
     };
-    api.post(`/programs`, obj)
+    //api.post(`/programs`, obj)
+    axios({
+      baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+      headers: {'mundo-data-token': localStorage.getItem('token')},
+      method: 'post',
+      url: '/programs',
+      data: {
+        quantidade :"25",
+        pagina: "1",
+        ordenar: {
+          por:"valor",
+          ordem:"asc"
+        }
+      }
+    })
     .then(res => {
       for(let i = 0; i <= res.data.data.ProgramsList.length; i++){
         if(res.data.data.ProgramsList[i]._id === match.params.idDoPrograma){

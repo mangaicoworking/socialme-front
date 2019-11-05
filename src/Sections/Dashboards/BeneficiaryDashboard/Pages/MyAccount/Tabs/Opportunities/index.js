@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import './style.css';
 import api from './../../../../../../../Services/api';
+import axios from 'axios';
 import UnicaLinha from './Components/UnicaLinha';
 import { AuthContext } from './../../../../../../../Contexts/AuthContext';
 
@@ -27,7 +28,16 @@ export default function BeneficiaryDashboardMyAccountMyPrograms() {
     const obj = {
       personId: person._id 
     };
-    api.post(`person/programs/available`,obj)
+    //api.post(`person/programs/available`,obj)
+    axios({
+      baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+      headers: {'mundo-data-token': localStorage.getItem('token')},
+      method: 'post',
+      url: 'person/programs/available',
+      data: {
+        personId: person._id 
+      }
+    })
     .then(res => {
         console.log(res.data)
         setValues({ 

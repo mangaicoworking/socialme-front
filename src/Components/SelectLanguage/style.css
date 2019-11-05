@@ -1,76 +1,53 @@
-.select{
-    color: var(--white);
+.selectLanguageDropdown{
+    width: 100px;
+    height: 30px;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+.selectLanguageDropdown-container{
+    background-color: white;
+    height: 30px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0px 5px;
+}
+.selectLanguageDropdown-flag{
+    height: 20px;
+}
+.selectLanguageDropdown-activeLanguage{
+    color: var(--textDark);
+    margin: 0px 5px;
+}
+.selectLanguageDropdown-i{
+    color: var(--textDark);
+    font-size: 10pt;
+    margin: 5px 0px 0px 5px;
+}
+.selectLanguageDropdown-dropdownMenu{
+    width: 100%;
+    height: 100px;
+    padding-top: 10px;
+    background-color: white;
+}
+.selectLanguageDropdown-dropdownMenu-ul{
+    list-style: none;
+}
+.selectLanguageDropdown-dropdownMenu-li{
+    background-color: var(--white);
     display: flex;
     align-items: center;
-    width: 100px;
-    cursor: pointer;
+    height: 25px;
+    padding: 0px 5px;
+    border-top: 1px solid var(--borderColor);
 }
-.select img{
-    height: 15px;
-    width: auto;
-    margin: 0px 10px 0px 15px;
+.selectLanguageDropdown-dropdownMenu-li:hover{
+    background-color: var(--backgroundColor);
 }
-.select i{
-    margin: 0px 0px 0px 5px;
-    font-size: 8pt;
-    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
-    transition: all 0.5s;
+.selectLanguageDropdown-dropdownMenu-active{
+    background-color: var(--gray) !important;
 }
-.select .box-select{
-    position: absolute;
-    top: 40px;
-    width: 100px;
-    height: auto;
-    background-color: var(--white);
-    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
-    transition: all 0.5s; 
-}
-.select .box-select .box-select-ul{
-    list-style: none;
-    padding: 5px;
-}
-.select .box-select .box-select-li {
-    display: inline-block;
-    width: 90px;
-    margin: 0px;
-    text-align: justify;
-    color: var(--dark);
-    cursor: pointer;
-}
-.select .box-select .box-select-li:hover {
-    background-color: var(--backgroundColor)
-}
-.selectIconRotateUp{
-    transform: rotate(180deg);
-}
-.selectIconRotateDown{
-    transform: rotate(0deg);
-}
-.selectBoxOpen{
-    animation-name: fadeSelectBoxOpen;
-    animation-duration: 0.5s;
-}
-@keyframes fadeSelectBoxOpen {
-    from{
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to{
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-.selectBoxOpen .box-select-li{
-    animation-name: moveSelectBoxItensAnimate;
-    animation-duration: 0.5s;
-}
-@keyframes moveSelectBoxItensAnimate {
-    from{
-        opacity: 0;
-        transform: translateX(-35%);
-    }
-    to{
-        opacity: 1;
-        transform: translateX(0%);
-    }
+.selectLanguageDropdown-span{
+    color: var(--textDark);
+    margin: 0px 5px;
 }

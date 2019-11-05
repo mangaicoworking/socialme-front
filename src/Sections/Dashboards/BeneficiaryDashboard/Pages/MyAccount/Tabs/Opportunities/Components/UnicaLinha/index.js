@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import api from './../../../../../../../../../Services/api';
+import axios from 'axios';
 import { AuthContext } from './../../../../../../../../../Contexts/AuthContext';
 
 const UnicaLinhaDoProgramaQuePossoParticipar = (props) => {
@@ -18,7 +19,17 @@ const UnicaLinhaDoProgramaQuePossoParticipar = (props) => {
         };
         console.log('OBJ -> ', obj);
          
-        api.post(`program/entrance`,obj)
+        //api.post(`program/entrance`,obj)
+        axios({
+            baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+            headers: {'mundo-data-token': localStorage.getItem('token')},
+            method: 'post',
+            url: 'program/entrance',
+            data: {
+                personId: props.personId,
+                programId: props.program._id
+            }
+          })
         .then(res => {
             console.log(res.data)
             setSolicitou(true)

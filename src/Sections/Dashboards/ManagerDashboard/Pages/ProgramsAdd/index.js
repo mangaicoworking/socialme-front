@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import './style.css';
 import api from './../../../../../Services/api';
+import axios from 'axios';
 import Alert from './../../../../../Components/Alert';
 
 export default function ManagerDashboarProgramsAdd() {
@@ -41,7 +42,25 @@ const adicionarNovoPrograma = () =>{
       ]
   };
   console.log(obj)
-  api.post(`program/new`, obj)
+  //api.post(`program/new`, obj)
+  axios({
+    baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+    headers: {'mundo-data-token': localStorage.getItem('token')},
+    method: 'post',
+    url: '/program/new',
+    data: {
+      name: values.nome,
+      type: values.type,
+      territorialCoverage: values.territorialCoverage,
+      photo: values.imagem,
+      status: values.status,
+      description: values.descricao,
+      tags: [
+        "tag1",
+        "tag2"
+      ]
+    }
+  })
       .then(res => {
         console.log(res.data);
         setValues({ 

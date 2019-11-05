@@ -6,6 +6,7 @@ import { Verification } from './Steps/Verification';
 import { LoginReal } from './Steps/LoginReal';
 import { RegisterPerson } from './Steps/RegisterPerson';
 import { RegisterInstitution } from "./Steps/RegisterInstitution";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -110,7 +111,9 @@ const changeLogin = (login) => {
     return ( 
         <div className="Login-ContainerGeral">
             <div className="Login-Navbar">
+                <Link to="/">
                 <img className="Login-Navbar-Logo" src={Logo} alt="Logo" />
+                </Link>
                 <div className="Login-Navbar-RightItens">
                     <SelectLanguage />
                 </div>

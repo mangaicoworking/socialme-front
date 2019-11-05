@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import Moment from 'react-moment';
 import api from './../../../../../../../../../Services/api';
+import axios from 'axios';
 
 export default function BeneficiaryDashboardMyAccountMyProgramsOnlyLine(props) {
     console.log('PROPS -> ', props)
@@ -12,7 +13,17 @@ export default function BeneficiaryDashboardMyAccountMyProgramsOnlyLine(props) {
             programId: props.item._id
         };
         console.log(obj);
-        api.post(`program/entrance/confirm`,obj)
+        //api.post(`program/entrance/confirm`,obj)
+        axios({
+            baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+            headers: {'mundo-data-token': localStorage.getItem('token')},
+            method: 'post',
+            url: 'program/entrance/confirm',
+            data: {
+                personId: props.personId,
+                programId: props.item._id
+            }
+          })
         .then(res => {
             console.log(res.data)
             switch(res.data.header.code){
@@ -37,7 +48,17 @@ export default function BeneficiaryDashboardMyAccountMyProgramsOnlyLine(props) {
         };
         console.log(obj);
         
-        api.post(`program/entrance/reject`,obj)
+        //api.post(`program/entrance/reject`,obj)
+        axios({
+            baseURL: 'https://social-me-v2.herokuapp.com/ergCNTis',
+            headers: {'mundo-data-token': localStorage.getItem('token')},
+            method: 'post',
+            url: 'program/entrance/reject',
+            data: {
+                personId: props.personId,
+                programId: props.item._id
+            }
+          })
         .then(res => {
             console.log(res.data)
             props.vaiPokebola()

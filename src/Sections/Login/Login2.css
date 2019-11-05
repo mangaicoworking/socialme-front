@@ -10,6 +10,11 @@
     padding-top: 5px;
     display: flex;
 }
+.Login-Navbar a{
+    opacity: 1;
+    text-align: center;
+    margin: 0px auto;
+}
 .Login-Navbar-Logo{
     height: 40px;
     display: block;
